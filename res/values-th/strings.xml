@@ -231,7 +231,7 @@
     <string name="review_ok" msgid="1156261588693116433">"เสร็จสิ้น"</string>
     <string name="time_lapse_title" msgid="4360632427760662691">"การบันทึกเป็นช่วงเวลา"</string>
     <string name="pref_camera_id_title" msgid="4040791582294635851">"เลือกกล้องถ่ายรูป"</string>
-    <string name="pref_camera_id_entry_back" msgid="5142699735103692485">"ย้อนกลับ"</string>
+    <string name="pref_camera_id_entry_back" msgid="5142699735103692485">"กลับ"</string>
     <string name="pref_camera_id_entry_front" msgid="5668958706828733669">"ด้านหน้า"</string>
     <string name="pref_camera_recordlocation_title" msgid="371208839215448917">"ตำแหน่งจัดเก็บ"</string>
     <string name="pref_camera_location_label" msgid="2254270920298609161">"ตำแหน่ง"</string>
@@ -423,7 +423,7 @@
     <string name="set_duration" msgid="5578035312407161304">"ตั้งระยะเวลาเป็นวินาที"</string>
     <string name="count_down_title_text" msgid="4976386810910453266">"นับถอยหลังเพื่อถ่ายภาพ"</string>
     <string name="remember_location_title" msgid="9060472929006917810">"จดจำตำแหน่งภาพหรือไม่"</string>
-    <string name="remember_location_prompt" msgid="724592331305808098">"แท็กรูปภาพและวิดีโอด้วยตำแหน่งที่ถ่ายภาพ\n\nแอปพลิเคชันอื่นๆ สามารถเข้าถึงข้อมูลนี้ตลอดจนภาพที่บันทึกไว้ของคุณได้"</string>
+    <string name="remember_location_prompt" msgid="724592331305808098">"แท็กรูปและวิดีโอด้วยตำแหน่งที่ถ่ายภาพ\n\nแอปอื่นๆ สามารถเข้าถึงข้อมูลนี้ตลอดจนภาพ ที่บันทึกไว้ของคุณได้"</string>
     <string name="remember_location_no" msgid="7541394381714894896">"ไม่ ขอบคุณ"</string>
     <string name="remember_location_yes" msgid="862884269285964180">"ใช่"</string>
     <string name="menu_camera" msgid="3476709832879398998">"กล้องถ่ายรูป"</string>

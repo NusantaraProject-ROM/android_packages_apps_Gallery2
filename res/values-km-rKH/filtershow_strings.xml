@@ -41,7 +41,7 @@
     <string name="unsaved" msgid="8704442449002374375">"មាន​ការ​ផ្លាស់ប្ដូរ​​​មិន​បាន​រក្សាទុក​លើ​​រូបភាព​នេះ​។"</string>
     <string name="save_before_exit" msgid="2680660633675916712">"តើ​អ្នក​ចង់​រក្សា​ទុក​មុន​ពេល​ចេញ?"</string>
     <string name="save_and_exit" msgid="3628425023766687419">"រក្សា​ទុក​​ ហើយ​ចេញ"</string>
-    <string name="save_and_processing" msgid="6371565035837463194">"កំពុង​ដំណើរការ​គុណភាព​បង្ហាញ​រូបភាព​ពេញលេញ..."</string>
+    <string name="save_and_processing" msgid="6371565035837463194">"កំពុង​ដំណើរការ​រូបភាព​មាន​គុណភាព​បង្ហាញ​​ពេញលេញ..."</string>
     <string name="exit" msgid="242642957038770113">"ចេញ"</string>
     <string name="history" msgid="455767361472692409">"ប្រវត្តិ"</string>
     <string name="reset" msgid="9013181350779592937">"កំណត់​ឡើងវិញ"</string>
@@ -126,7 +126,7 @@
     <string name="color_pick_select" msgid="734312818059057394">"ជ្រើស​ពណ៌​តាម​តម្រូវ​ការ"</string>
     <string name="color_pick_title" msgid="6195567431995308876">"ជ្រើស​ពណ៌"</string>
     <string name="draw_size_title" msgid="3121649039610273977">"ជ្រើស​ទំហំ"</string>
-    <string name="draw_size_accept" msgid="6781529716526190028">"យល់​ព្រម"</string>
+    <string name="draw_size_accept" msgid="6781529716526190028">"យល់​ព្រម​"</string>
     <string name="state_panel_original" msgid="9069584409934164419">"ដើម"</string>
     <string name="state_panel_result" msgid="318640531123298676">"លទ្ធផល"</string>
     <string name="filtershow_notification_label" msgid="1653168445525855247">"រក្សាទុក​រូបភាព"</string>
