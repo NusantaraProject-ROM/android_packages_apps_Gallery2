@@ -27,8 +27,8 @@
         <item name="android:displayOptions"></item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:actionBarStyle">@style/Material.ActionBar</item>
-        <item name="android:colorBackground">@color/material_blue_grey_950</item>
-        <item name="android:colorBackgroundCacheHint">@color/material_blue_grey_950</item>
+        <item name="android:colorBackground">@color/material_red</item>
+        <item name="android:colorBackgroundCacheHint">@color/material_red</item>
         <item name="android:actionModeBackground">@color/primary</item>
     </style>
     <style name="Theme.Crop" parent="Theme.GalleryBase">
