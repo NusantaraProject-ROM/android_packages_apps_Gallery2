@@ -96,7 +96,7 @@
   <plurals name="delete_selection">
     <item quantity="one">Usunąć wybrany element?</item>
     <item quantity="few">Usunąć wybrane elementy?</item>
-    <item quantity="other">Delete selected items?</item>
+    <item quantity="other">Usunąć wybrane elementy?</item>
   </plurals>
   <string name="confirm">Potwierdź</string>
   <string name="cancel">Anuluj</string>
@@ -119,23 +119,23 @@
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_items_selected">
-    <item quantity="one">Wybrane: %1$d</item>
-    <item quantity="few">Wybrane: %1$d</item>
-    <item quantity="other">%1$d selected</item>
+    <item quantity="one">%1$d wybrany</item>
+    <item quantity="few">%1$d wybrane</item>
+    <item quantity="other">%1$d wybranych</item>
   </plurals>
   <!-- String indicating how many media album(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_albums_selected">
-    <item quantity="one">Wybrane: %1$d</item>
-    <item quantity="few">Wybrane: %1$d</item>
-    <item quantity="other">%1$d selected</item>
+    <item quantity="one">%1$d wybrany</item>
+    <item quantity="few">%1$d wybrane</item>
+    <item quantity="other">%1$d wybranych</item>
   </plurals>
   <!-- String indicating how many media group(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_groups_selected">
-    <item quantity="one">Wybrane: %1$d</item>
-    <item quantity="few">Wybrane: %1$d</item>
-    <item quantity="other">%1$d selected</item>
+    <item quantity="one">%1$d wybrany</item>
+    <item quantity="few">%1$d wybrane</item>
+    <item quantity="other">%1$d wybranych</item>
   </plurals>
   <!-- String indicating timestamp of photo or video -->
   <string name="show_on_map">Pokaż na mapie</string>
@@ -226,7 +226,7 @@
          some albums to be viewable offline [CHAR LIMIT=30] -->
   <string name="make_available_offline">Udostępnij w trybie offline</string>
   <!-- A label describing to link website [CHAR LIMIT=30] -->
-  <string name="more_image">More Images</string>
+  <string name="more_image">Więcej zdjęć</string>
   <!-- A label of a menu item for user to sync the content [CHAR LIMIT=30] -->
   <string name="sync_picasa_albums">Odśwież</string>
   <!-- A label on a button. The user clicks this button after he has
@@ -262,7 +262,7 @@
   <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
   <string name="model">Model</string>
   <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
-  <string name="flash">Flash</string>
+  <string name="flash">Lampa</string>
   <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
   <string name="aperture">Przesłona</string>
   <!-- Text indicating the focal length of a media item in details window [CHAR LIMIT=14] -->
@@ -291,7 +291,7 @@
   <!-- String for brown-colored old-fashion looking filter (filtershow_fx_0000_vintage) [CHAR LIMIT=10] -->
   <string name="ffx_vintage">Vintage</string>
   <!-- String for filter that brightens colors like instant cameras(filtershow_fx_0001_instant) [CHAR LIMIT=10] -->
-  <string name="ffx_instant">Instant</string>
+  <string name="ffx_instant">Błyskawiczne</string>
   <!-- String for filter that washes out colors (filtershow_fx_0002_bleach) [CHAR LIMIT=10] -->
   <string name="ffx_bleach">Wybielacz</string>
   <!-- String for filter that makes colors a bluish (filtershow_fx_0003_blue_crush) [CHAR LIMIT=10] -->
@@ -312,7 +312,7 @@
   <plurals name="make_albums_available_offline">
     <item quantity="one">Udostępnianie albumu w trybie offline</item>
     <item quantity="few">Udostępnianie albumów w trybie offline</item>
-    <item quantity="other">Making albums available offline.</item>
+    <item quantity="other">Udostępnianie albumów w trybie offline</item>
   </plurals>
   <!-- Toast message shown after we try to make a local album available offline
          [CHAR LIMIT=150] -->
@@ -427,7 +427,7 @@
   <!-- Toast if the trimmed video is too short to trim. [CHAR LIMIT=80] -->
   <string name="trim_too_short">Nie można przyciąć: film docelowy jest za krótki</string>
   <!-- Toast if the muted video is not supported. [CHAR LIMIT=80] -->
-  <string name="mute_nosupport">Can not mute : not supported video</string>
+  <string name="mute_nosupport">Nie można wyciszyć: nie obsługiwane wideo</string>
   <!-- Text to show with progress bar while stitching in Gallery -->
   <string name="pano_progress_text">Renderuję panoramę</string>
   <!-- The label on the button that will save an edited image -->
@@ -440,15 +440,15 @@
   <string name="ingest_scanning" msgid="2048262851775139720">Skanuję zawartość...</string>
   <!-- String indicating how many media items from the camera have been scanned -->
   <plurals name="ingest_number_of_items_scanned">
-    <item quantity="one">%1$d element przeskanowany</item>
-    <item quantity="few">Przeskanowane elementy: %1$d</item>
-    <item quantity="other">%1$d items scanned</item>
+    <item quantity="one">%1$d przeskanowany element</item>
+    <item quantity="few">%1$d przeskanowane elementy</item>
+    <item quantity="other">%1$d przeskanowanych elementów</item>
   </plurals>
   <!-- String indicating how many media items from the camera have been selected -->
   <plurals name="ingest_number_of_items_selected">
-    <item quantity="one">%1$d item selected</item>
-    <item quantity="few">%1$d items selected</item>
-    <item quantity="other">%1$d items selected</item>
+    <item quantity="one">%1$d zaznaczony</item>
+    <item quantity="few">%1$d zaznaczone</item>
+    <item quantity="other">%1$d zaznaczonych</item>
   </plurals>
   <!--  Status message shown when content from the camera is being sorted -->
   <string name="ingest_sorting" msgid="624687230903648118">Sortuję...</string>
@@ -509,8 +509,8 @@
   <!-- Entry for countdown timer setting. e.g. 1 second, 10 seconds, etc. [CHAR LIMIT=30]-->
   <plurals name="pref_camera_timer_entry">
     <item quantity="one">1 sekunda</item>
-    <item quantity="few">%d s</item>
-    <item quantity="other">%d seconds</item>
+    <item quantity="few">%d sekundy</item>
+    <item quantity="other">%d sekund</item>
   </plurals>
   <string name="pref_camera_timer_sound_default">@string/setting_on_value</string>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 16]-->
@@ -882,7 +882,7 @@ CHAR LIMIT = NONE] -->
   <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
   <string name="remember_location_yes">Tak</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
-  <string name="map_activity_not_found_err">There is no map app for show location.</string>
+  <string name="map_activity_not_found_err">Nie ma aplikacji mapy zainstalowanej, aby zobaczyć lokalizację.</string>
   <!-- Menu item to launch the camera app [CHAR LIMIT=25] -->
   <string name="menu_camera">Aparat</string>
   <!-- Menu item to search for photos [CHAR LIMIT=25] -->
@@ -899,17 +899,17 @@ CHAR LIMIT = NONE] -->
   <!-- String indicating how many photos are in an album [CHAR LIMIT=15] -->
   <plurals name="number_of_photos">
     <item quantity="one">%1$d zdjęcie</item>
-    <item quantity="few">Zdjęcia: %1$d</item>
-    <item quantity="other">%1$d photos</item>
+    <item quantity="few">%1$d zdjęcia</item>
+    <item quantity="other">%1$d zdjęć</item>
   </plurals>
   <!-- The label for the bass boost knob of the audio effects dialog. -->
-  <string name="bass_boost_strength">Bass boost</string>
+  <string name="bass_boost_strength">Podbicie basu</string>
   <!-- The label for the 3d effect knob of the audio effects dialog. -->
-  <string name="virtualizer_strength">3D effect</string>
+  <string name="virtualizer_strength">Efekt 3D</string>
   <!-- The label for the audio effects menu. -->
-  <string name="audio_effects">Audio effects</string>
+  <string name="audio_effects">Efekty dźwiękowe</string>
   <!-- Toast if user attempts to control audio effects without headphones plugged in. -->
-  <string name="headset_plug">Plug in headphones for these effects.</string>
+  <string name="headset_plug">Podłącz słuchawki dla tych efektów.</string>
   <!-- The title of the audio effects dialog. -->
   <string name="audio_effects_dialog_title">Snapdragon Audio+</string>
   <!-- The tips of trimming video -->
