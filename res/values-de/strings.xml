@@ -217,12 +217,12 @@
             [CHAR LIMIT=50] -->
   <string name="empty_album">Keine Bilder oder Videos vorhanden</string>
   <!-- Album label used to indicate the collection of PWA Buzz/Post photos -->
-  <string name="picasa_posts">Posts</string>
+  <string name="picasa_posts">Beiträge</string>
   <!-- A label describing that the current screen is for the user to pick
          some albums to be viewable offline [CHAR LIMIT=30] -->
   <string name="make_available_offline">Offline bereitstellen</string>
   <!-- A label describing to link website [CHAR LIMIT=30] -->
-  <string name="more_image">More Images</string>
+  <string name="more_image">Weitere Bilder</string>
   <!-- A label of a menu item for user to sync the content [CHAR LIMIT=30] -->
   <string name="sync_picasa_albums">Aktualisieren</string>
   <!-- A label on a button. The user clicks this button after he has
@@ -285,25 +285,25 @@
   <!-- String for the empty not filtered image [CHAR LIMIT=10] -->
   <string name="ffx_original">Original</string>
   <!-- String for brown-colored old-fashion looking filter (filtershow_fx_0000_vintage) [CHAR LIMIT=10] -->
-  <string name="ffx_vintage">Vintage</string>
+  <string name="ffx_vintage">Altmodisch</string>
   <!-- String for filter that brightens colors like instant cameras(filtershow_fx_0001_instant) [CHAR LIMIT=10] -->
-  <string name="ffx_instant">Instant</string>
+  <string name="ffx_instant">Augenblick</string>
   <!-- String for filter that washes out colors (filtershow_fx_0002_bleach) [CHAR LIMIT=10] -->
-  <string name="ffx_bleach">Bleach</string>
+  <string name="ffx_bleach">Bleichmittel</string>
   <!-- String for filter that makes colors a bluish (filtershow_fx_0003_blue_crush) [CHAR LIMIT=10] -->
   <string name="ffx_blue_crush">Blau</string>
   <!-- String for filter that makes image black & white (filtershow_fx_0004_bw_contrast) [CHAR LIMIT=10] -->
   <string name="ffx_bw_contrast">Schwarzweiß</string>
   <!-- String for filter that makes colors a yellowish (filtershow_fx_0005_punch) [CHAR LIMIT=10] -->
-  <string name="ffx_punch">Punch</string>
+  <string name="ffx_punch">Stanzeffekt</string>
   <!-- String for filter that mimics the cross-process technique in
          photography (makes colors bluish) (filtershow_fx_0006_x_process) [CHAR LIMIT=10] -->
-  <string name="ffx_x_process">X Process</string>
+  <string name="ffx_x_process">Crossentwicklung</string>
   <!-- String for filter that makes image coffee-colored (filtershow_fx_0007_washout) [CHAR LIMIT=10] -->
   <string name="ffx_washout">Latte</string>
   <!-- String for filter that makes colors washed out and brownish
          (filtershow_fx_0008_washout_color) [CHAR LIMIT=10] -->
-  <string name="ffx_washout_color">Litho</string>
+  <string name="ffx_washout_color">Flachdruck</string>
   <!-- Toast message shown after we make some album(s) available offline [CHAR LIMIT=50] -->
   <plurals name="make_albums_available_offline">
     <item quantity="one">Album wird offline bereitgestellt.</item>
@@ -422,15 +422,13 @@
   <!-- Toast if the trimmed video is too short to trim. [CHAR LIMIT=80] -->
   <string name="trim_too_short">Zuschneiden nicht möglich: Ziel-Video zu kurz</string>
   <!-- Toast if the muted video is not supported. [CHAR LIMIT=80] -->
-  <string name="mute_nosupport">Can not mute : not supported video</string>
+  <string name="mute_nosupport">Stummschalten nicht möglich : kein unterstützes Video</string>
   <!-- Text to show with progress bar while stitching in Gallery -->
   <string name="pano_progress_text">Panorama wird gerendert...</string>
   <!-- The label on the button that will save an edited image -->
   <string name="save" msgid="8140440041190264400">Speichern</string>
   <!-- A label representing the action of importing media item(s) [CHAR LIMIT=20] -->
-  <string name="ingest_import">@string/Import</string>
   <!-- A label that indicates the media import operation completed [CHAR LIMIT=20] -->
-  <string name="ingest_import_complete">@string/import_complete</string>
   <!--  Text of notification message which is shown when user attaches camera -->
   <string name="ingest_scanning" msgid="2048262851775139720">Inhalt wird gescannt...</string>
   <!-- String indicating how many media items from the camera have been scanned -->
@@ -440,8 +438,8 @@
   </plurals>
   <!-- String indicating how many media items from the camera have been selected -->
   <plurals name="ingest_number_of_items_selected">
-    <item quantity="one">%1$d item selected</item>
-    <item quantity="other">%1$d items selected</item>
+    <item quantity="one">%1$d Element ausgewählt</item>
+    <item quantity="other">%1$d Elemente ausgewählt</item>
   </plurals>
   <!--  Status message shown when content from the camera is being sorted -->
   <string name="ingest_sorting" msgid="624687230903648118">Wird sortiert...</string>
@@ -454,9 +452,7 @@
   <!--  Status message shown when there is no MTP device connected  -->
   <string name="ingest_no_device">Es ist kein MTP-Gerät angeschlossen.</string>
   <!-- Label for album grid button -->
-  <string name="ingest_switch_photo_grid">@string/switch_photo_grid</string>
   <!-- Label for fullscreen button. [CHAR LIMIT=20] -->
-  <string name="ingest_switch_photo_fullscreen">@string/switch_photo_fullscreen</string>
   <!-- Camera resources below -->
   <!-- General strings -->
   <!-- title for the dialog showing the error of camera hardware -->
@@ -504,7 +500,6 @@
     <item quantity="one">1 Sekunde</item>
     <item quantity="other">%d Sekunden</item>
   </plurals>
-  <string name="pref_camera_timer_sound_default">@string/setting_on_value</string>
   <!-- Text followed by a checkbox to turn on/off sound effects during the countdown. [CHAR LIMIT = 16]-->
   <string name="pref_camera_timer_sound_title">Piepton während Countdown</string>
   <!-- Entry of a on/off setting. The setting is turned off. [CHAR LIMIT=15] -->
@@ -604,7 +599,7 @@
   <!-- Scene mode that uses HDR (high dynamic range) [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_hdr">HDR</string>
   <!-- Scene mode that takes an image quickly with little motion blur. [CHAR LIMIT=16] -->
-  <string name="pref_camera_scenemode_entry_action">Action</string>
+  <string name="pref_camera_scenemode_entry_action">Bewegung</string>
   <!-- Scene mode that takes long exposures to capture night scenes without flash. [CHAR LIMIT=16] -->
   <string name="pref_camera_scenemode_entry_night">Nachtaufnahme</string>
   <!-- Scene mode optimized for taking images in the sunset. [CHAR LIMIT=16] -->
@@ -640,7 +635,6 @@
   <!--  menu label exposure compensation [CHAR LIMIT=50] -->
   <string name="pref_exposure_label">Belichtung</string>
   <!-- Default HDR entry value -->
-  <string name="pref_camera_hdr_default">@string/setting_off_value</string>
   <!-- HDR label ON [CHAR LIMIT=60] -->
   <string name="pref_camera_hdr_label">HDR; High Dynamic Range</string>
   <!-- switch camera label back [CHAR LIMIT=60] -->
@@ -874,7 +868,7 @@ CHAR LIMIT = NONE] -->
   <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
   <string name="remember_location_yes">Ja</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
-  <string name="map_activity_not_found_err">There is no map app for show location.</string>
+  <string name="map_activity_not_found_err">Es gibt keine Karten-App, um den Standort anzuzeigen.</string>
   <!-- Menu item to launch the camera app [CHAR LIMIT=25] -->
   <string name="menu_camera">Kamera</string>
   <!-- Menu item to search for photos [CHAR LIMIT=25] -->
@@ -894,15 +888,15 @@ CHAR LIMIT = NONE] -->
     <item quantity="other">%1$d Fotos</item>
   </plurals>
   <!-- The label for the bass boost knob of the audio effects dialog. -->
-  <string name="bass_boost_strength">Bass boost</string>
+  <string name="bass_boost_strength">Bassverstärkung</string>
   <!-- The label for the 3d effect knob of the audio effects dialog. -->
-  <string name="virtualizer_strength">3D effect</string>
+  <string name="virtualizer_strength">3D-Effekt</string>
   <!-- The label for the audio effects menu. -->
-  <string name="audio_effects">Audio effects</string>
+  <string name="audio_effects">Audio-Effekte</string>
   <!-- Toast if user attempts to control audio effects without headphones plugged in. -->
-  <string name="headset_plug">Plug in headphones for these effects.</string>
+  <string name="headset_plug">Schließen Sie Kopfhörer für diese Effekte an.</string>
   <!-- The title of the audio effects dialog. -->
-  <string name="audio_effects_dialog_title">Snapdragon Audio+</string>
+  <string name="audio_effects_dialog_title">Snapdragon-Audio+</string>
   <!-- The tips of trimming video -->
-  <string name="fail_trim">Sorry, this video file can not be trimmed</string>
+  <string name="fail_trim">Diese Video-Datei kann leider nicht gekürzt werden</string>
 </resources>
