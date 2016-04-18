@@ -226,7 +226,7 @@
          some albums to be viewable offline [CHAR LIMIT=30] -->
   <string name="make_available_offline">Zpřístupnit offline</string>
   <!-- A label describing to link website [CHAR LIMIT=30] -->
-  <string name="more_image">More Images</string>
+  <string name="more_image">Další obrázky</string>
   <!-- A label of a menu item for user to sync the content [CHAR LIMIT=30] -->
   <string name="sync_picasa_albums">Aktualizovat</string>
   <!-- A label on a button. The user clicks this button after he has
@@ -260,7 +260,7 @@
   <!-- Text indicating the maker of a media item in details window [CHAR LIMIT=14] -->
   <string name="maker">Tvůrce</string>
   <!-- Text indicating the model of a media item in details window [CHAR LIMIT=14] -->
-  <string name="model">Model</string>
+  <string name="model">Typ</string>
   <!-- Text indicating flash info of a media item in details window [CHAR LIMIT=14] -->
   <string name="flash">Blesk</string>
   <!-- Text indicating aperture of a media item in details window [CHAR LIMIT=14] -->
@@ -427,7 +427,7 @@
   <!-- Toast if the trimmed video is too short to trim. [CHAR LIMIT=80] -->
   <string name="trim_too_short">Zkrácení nelze provést: výsledné video je příliš krátké</string>
   <!-- Toast if the muted video is not supported. [CHAR LIMIT=80] -->
-  <string name="mute_nosupport">Can not mute : not supported video</string>
+  <string name="mute_nosupport">Nelze ztlumit: video není podporováno</string>
   <!-- Text to show with progress bar while stitching in Gallery -->
   <string name="pano_progress_text">Vykreslování panoramatu</string>
   <!-- The label on the button that will save an edited image -->
@@ -444,9 +444,9 @@
   </plurals>
   <!-- String indicating how many media items from the camera have been selected -->
   <plurals name="ingest_number_of_items_selected">
-    <item quantity="one">%1$d item selected</item>
+    <item quantity="one">%1$d položka vybrána</item>
     <item quantity="few">%1$d items selected</item>
-    <item quantity="other">%1$d items selected</item>
+    <item quantity="other">%1$d vybraných položek</item>
   </plurals>
   <!--  Status message shown when content from the camera is being sorted -->
   <string name="ingest_sorting" msgid="624687230903648118">Řazení...</string>
@@ -560,11 +560,11 @@
   <!-- Settings screen, Focus mode title -->
   <string name="pref_camera_focusmode_title">Režim zaostření</string>
   <!-- Settings screen, Focus mode dialog radio button choices -->
-  <string name="pref_camera_focusmode_entry_auto">Auto</string>
+  <string name="pref_camera_focusmode_entry_auto">Automaticky</string>
   <string name="pref_camera_focusmode_entry_infinity">Nekonečno</string>
   <string name="pref_camera_focusmode_entry_macro">Makro</string>
   <!-- Menu, focus mode labels [CHAR LIMIT=50] -->
-  <string name="pref_camera_focusmode_label_auto">AUTO</string>
+  <string name="pref_camera_focusmode_label_auto">AUTOMATICKY</string>
   <string name="pref_camera_focusmode_label_infinity">NEKONEČNO</string>
   <string name="pref_camera_focusmode_label_macro">MAKRO</string>
   <!-- Default flash mode setting.-->
@@ -594,7 +594,7 @@
   <string name="pref_camera_whitebalance_entry_fluorescent">Zářivka</string>
   <string name="pref_camera_whitebalance_entry_cloudy">Zataženo</string>
   <!-- Menu, White balance labels [CHAR LIMIT=50] -->
-  <string name="pref_camera_whitebalance_label_auto">AUTO</string>
+  <string name="pref_camera_whitebalance_label_auto">AUTOMATICKY</string>
   <string name="pref_camera_whitebalance_label_incandescent">ŽÁROVKA</string>
   <string name="pref_camera_whitebalance_label_daylight">DENNÍ SVĚTLO</string>
   <string name="pref_camera_whitebalance_label_fluorescent">ZÁŘIVKA</string>
@@ -667,7 +667,7 @@
   <!-- The text shown in the dialog when panorama saving failed [CHAR LIMIT=40] -->
   <string name="pano_dialog_panorama_failed">Panoramatickou fotku nelze uložit.</string>
   <!-- The text shown on the dialog title in the dialogs for Panorama [CHAR LIMIT=12] -->
-  <string name="pano_dialog_title">Panorama</string>
+  <string name="pano_dialog_title">Panoráma</string>
   <!-- The text shown on the top-left corner of the screen to indicate the capturing is on going [CHAR LIMIT=27] -->
   <string name="pano_capture_indication">Snímání panoramatu</string>
   <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
@@ -876,7 +876,7 @@ CHAR LIMIT = NONE] -->
   <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
   <string name="remember_location_yes">Ano</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
-  <string name="map_activity_not_found_err">There is no map app for show location.</string>
+  <string name="map_activity_not_found_err">Neexistuje žádná mapová aplikace pro zobrazení umístění.</string>
   <!-- Menu item to launch the camera app [CHAR LIMIT=25] -->
   <string name="menu_camera">Fotoaparát</string>
   <!-- Menu item to search for photos [CHAR LIMIT=25] -->
@@ -897,15 +897,15 @@ CHAR LIMIT = NONE] -->
     <item quantity="other">%1$d photos</item>
   </plurals>
   <!-- The label for the bass boost knob of the audio effects dialog. -->
-  <string name="bass_boost_strength">Bass boost</string>
+  <string name="bass_boost_strength">Zvýraznění basů</string>
   <!-- The label for the 3d effect knob of the audio effects dialog. -->
-  <string name="virtualizer_strength">3D effect</string>
+  <string name="virtualizer_strength">3D efekt</string>
   <!-- The label for the audio effects menu. -->
-  <string name="audio_effects">Audio effects</string>
+  <string name="audio_effects">Zvukové efekty</string>
   <!-- Toast if user attempts to control audio effects without headphones plugged in. -->
-  <string name="headset_plug">Plug in headphones for these effects.</string>
+  <string name="headset_plug">Připojte sluchátka pro tyto efekty.</string>
   <!-- The title of the audio effects dialog. -->
   <string name="audio_effects_dialog_title">Snapdragon Audio+</string>
   <!-- The tips of trimming video -->
-  <string name="fail_trim">Sorry, this video file can not be trimmed</string>
+  <string name="fail_trim">Video nelze oříznout</string>
 </resources>

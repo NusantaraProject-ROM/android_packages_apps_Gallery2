@@ -226,7 +226,7 @@
          some albums to be viewable offline [CHAR LIMIT=30] -->
   <string name="make_available_offline">Офлайн-доступ</string>
   <!-- A label describing to link website [CHAR LIMIT=30] -->
-  <string name="more_image">More Images</string>
+  <string name="more_image">Больше изображений</string>
   <!-- A label of a menu item for user to sync the content [CHAR LIMIT=30] -->
   <string name="sync_picasa_albums">Обновить</string>
   <!-- A label on a button. The user clicks this button after he has
@@ -272,7 +272,7 @@
   <!-- Text indicating the exposure time of a media item in details window [CHAR LIMIT=14] -->
   <string name="exposure_time">Выдержка</string>
   <!-- Text indicating the ISO speed rating of a media item in details window [CHAR LIMIT=14] -->
-  <string name="iso">ISO</string>
+  <string name="iso">Значение ISO</string>
   <!-- String indicating the time units in seconds. [CHAR LIMIT=8] -->
   <!-- String indicating the length units in milli-meters. [CHAR LIMIT=8] -->
   <string name="unit_mm">мм</string>
@@ -427,7 +427,7 @@
   <!-- Toast if the trimmed video is too short to trim. [CHAR LIMIT=80] -->
   <string name="trim_too_short">Нельзя обрезать видео: оно слишком короткое</string>
   <!-- Toast if the muted video is not supported. [CHAR LIMIT=80] -->
-  <string name="mute_nosupport">Can not mute : not supported video</string>
+  <string name="mute_nosupport">Невозможно отключить звук: видеофайл не поддерживается</string>
   <!-- Text to show with progress bar while stitching in Gallery -->
   <string name="pano_progress_text">Создание панорамы…</string>
   <!-- The label on the button that will save an edited image -->
@@ -444,9 +444,9 @@
   </plurals>
   <!-- String indicating how many media items from the camera have been selected -->
   <plurals name="ingest_number_of_items_selected">
-    <item quantity="one">%1$d item selected</item>
-    <item quantity="few">%1$d items selected</item>
-    <item quantity="other">%1$d items selected</item>
+    <item quantity="one">выбрано элементов</item>
+    <item quantity="few">выбрано элементов</item>
+    <item quantity="other">выбрано элементов</item>
   </plurals>
   <!--  Status message shown when content from the camera is being sorted -->
   <string name="ingest_sorting" msgid="624687230903648118">Сортировка…</string>
@@ -644,7 +644,7 @@
   <string name="pref_exposure_label">ЭКСПОЗИЦИЯ</string>
   <!-- Default HDR entry value -->
   <!-- HDR label ON [CHAR LIMIT=60] -->
-  <string name="pref_camera_hdr_label">HDR</string>
+  <string name="pref_camera_hdr_label">Эффект HDR</string>
   <!-- switch camera label back [CHAR LIMIT=60] -->
   <string name="pref_camera_id_label_back">ФРОНТАЛЬНАЯ КАМЕРА</string>
   <!-- switch camera label front [CHAR LIMIT=60] -->
@@ -876,7 +876,7 @@ CHAR LIMIT = NONE] -->
   <!-- Positive answer for first run dialog asking if the user wants to remember photo locations [CHAR LIMIT = 20] -->
   <string name="remember_location_yes">Да</string>
   <!-- The message is shown in toast when click showOnMap Menu and there is no map app -->
-  <string name="map_activity_not_found_err">There is no map app for show location.</string>
+  <string name="map_activity_not_found_err">Нет приложения карты для показа местоположения</string>
   <!-- Menu item to launch the camera app [CHAR LIMIT=25] -->
   <string name="menu_camera">Камера</string>
   <!-- Menu item to search for photos [CHAR LIMIT=25] -->
@@ -897,15 +897,15 @@ CHAR LIMIT = NONE] -->
     <item quantity="other">%1$d photos</item>
   </plurals>
   <!-- The label for the bass boost knob of the audio effects dialog. -->
-  <string name="bass_boost_strength">Bass boost</string>
+  <string name="bass_boost_strength">Усиление НЧ</string>
   <!-- The label for the 3d effect knob of the audio effects dialog. -->
-  <string name="virtualizer_strength">3D effect</string>
+  <string name="virtualizer_strength">Эффект 3D</string>
   <!-- The label for the audio effects menu. -->
-  <string name="audio_effects">Audio effects</string>
+  <string name="audio_effects">Аудио эффекты</string>
   <!-- Toast if user attempts to control audio effects without headphones plugged in. -->
-  <string name="headset_plug">Plug in headphones for these effects.</string>
+  <string name="headset_plug">Подключите наушники для включения эффектов.</string>
   <!-- The title of the audio effects dialog. -->
   <string name="audio_effects_dialog_title">Snapdragon Audio+</string>
   <!-- The tips of trimming video -->
-  <string name="fail_trim">Sorry, this video file can not be trimmed</string>
+  <string name="fail_trim">К сожалению, это видео нельзя обрезать</string>
 </resources>
