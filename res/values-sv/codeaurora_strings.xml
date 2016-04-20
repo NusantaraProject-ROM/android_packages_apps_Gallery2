@@ -30,18 +30,18 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Strings for step option settins -->
-  <string name="setp_option_name">Step</string>
-  <string name="step_option_desc">Customize fast forward/backward step</string>
-  <string name="setp_option_three_second">3 seconds</string>
-  <string name="setp_option_six_second">6 seconds</string>
-  <string name="loop">"Loop"</string>
-  <string name="single">"Single"</string>
+  <string name="setp_option_name">Steg</string>
+  <string name="step_option_desc">Anpassa snabbt framåt/bakåt steg</string>
+  <string name="setp_option_three_second">3 sekunder</string>
+  <string name="setp_option_six_second">6 sekunder</string>
+  <string name="loop">"Repetera"</string>
+  <string name="single">"Enkel"</string>
   <string name="stereo">"Stereo"</string>
-  <string name="speaker_on">Speaker ON</string>
-  <string name="speaker_off">Speaker OFF</string>
-  <string name="speaker_need_headset">Please plug in headset first!</string>
-  <string name="single_track">"Single track"</string>
-  <string name="media_detail">"Media details"</string>
+  <string name="speaker_on">Högtalare på</string>
+  <string name="speaker_off">Högtalare AV</string>
+  <string name="speaker_need_headset">Vänligen koppla in headset först!</string>
+  <string name="single_track">"Enkelt spår"</string>
+  <string name="media_detail">"Media detaljer"</string>
   <string name="input_url">"Input URL"</string>
   <string name="streaming_settings">"Streaming Settings"</string>
   <string name="next">"Next"</string>
