@@ -283,7 +283,7 @@
 
     <!-- A label describing to link website [CHAR LIMIT=30] -->
     <string name="more_image">More Images</string>
-    <string name="website_for_more_image"></string>
+    <string name="website_for_more_image" translatable="false"></string>
 
     <!-- A label of a menu item for user to sync the content [CHAR LIMIT=30] -->
     <string name="sync_picasa_albums">Refresh</string>
