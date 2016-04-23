@@ -545,7 +545,7 @@
     <string name="ingest_import_complete" translatable="false">@string/import_complete</string>
 
     <!--  Text of notification message which is shown when user attaches camera -->
-    <string name="ingest_scanning" msgid="2048262851775139720">Scanning content...</string>
+    <string name="ingest_scanning" msgid="2048262851775139720">Scanning content\u2026</string>
 
     <!-- String indicating how many media items from the camera have been scanned -->
     <plurals name="ingest_number_of_items_scanned">
@@ -562,13 +562,13 @@
     </plurals>
 
     <!--  Status message shown when content from the camera is being sorted -->
-    <string name="ingest_sorting" msgid="624687230903648118">Sorting...</string>
+    <string name="ingest_sorting" msgid="624687230903648118">Sorting\u2026</string>
 
     <!--  Status message shown when scanning the content from the camera has completed -->
     <string name="ingest_scanning_done">Scanning done</string>
 
     <!--  Status message shown when content from an external camera is being imported -->
-    <string name="ingest_importing">Importing...</string>
+    <string name="ingest_importing">Importing\u2026</string>
 
     <!--  Status message shown when there is no content available to be imported -->
     <string name="ingest_empty_device">There is no content available for importing on this device.</string>
