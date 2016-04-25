@@ -29,10 +29,10 @@
   <string name="movie_view_label">Videolejátszó</string>
   <!-- shown in the video player view while the video is being loaded, before it starts playing -->
   <string name="loading_video">Videó betöltése…</string>
-  <string name="loading_image">Kép betöltése...</string>
+  <string name="loading_image">Kép betöltése\u2026</string>
   <!-- Message shown on the progress dialog to indicate we're loading the
             account info [CHAR LIMIT=30] -->
-  <string name="loading_account">Fiók betöltése...</string>
+  <string name="loading_account">Fiók betöltése\u2026</string>
   <!-- Movie View Resume Playing dialog title -->
   <string name="resume_playing_title">Videó folytatása</string>
   <!-- Movie View Start Playing dialog title -->
@@ -62,7 +62,7 @@
   <!-- Hint that appears when cropping an image with more than one face -->
   <string name="multiface_crop_help">Érintsen meg egy arcot a kezdéshez.</string>
   <!-- Toast/alert that the image is being saved to the SD card -->
-  <string name="saving_image">Kép mentése...</string>
+  <string name="saving_image">Kép mentése\u2026</string>
   <!-- Toast/alert that the image is being saved after editing in filtershow [CHAR LIMIT=40]-->
   <string name="filtershow_saving_image">Kép mentése ide: <xliff:g id="ALBUM_NAME">%1$s</xliff:g> …</string>
   <!-- Eorror toast message that the image cannot be saved [CHAR LIMIT=40]-->
@@ -88,7 +88,7 @@
   <!-- Activity title for cropping picture and setting it as wallpaper [CHAR LIMIT=20] -->
   <string name="set_wallpaper">Háttérkép beállítása</string>
   <!-- Toast/alert after saving wallpaper -->
-  <string name="wallpaper">Háttérkép beállítása...</string>
+  <string name="wallpaper">Háttérkép beállítása\u2026</string>
   <string name="camera_setas_wallpaper">Háttérkép</string>
   <!-- Details dialog "OK" button. Dismisses dialog. -->
   <string name="delete">Törlés</string>
@@ -154,7 +154,7 @@
          It means the pictures of the Picasa album is currently being
          transferred to local storage, so the pictures can later be viewed
          offline. [CHAR LIMIT=15] -->
-  <string name="caching_label">Gyorsítótárazás...</string>
+  <string name="caching_label">Gyorsítótárazás\u2026</string>
   <!-- The title of the menu item to let user crop the image. [CHAR LIMIT=15] -->
   <string name="crop_action">Körbevágás</string>
   <!-- The title of the menu item to let user trim the video. [CHAR LIMIT=15] -->
@@ -414,7 +414,7 @@
   <!-- The tilte of a dialog showing trimming in progress. [CHAR LIMIT=20] -->
   <string name="trimming">Vágás</string>
   <!-- The tilte of a dialog showing muting in progress. [CHAR LIMIT=20] -->
-  <string name="muting">Némítás...</string>
+  <string name="muting">Némítás</string>
   <!-- The content of a dialog showing trimming in progress. [CHAR LIMIT=30] -->
   <string name="please_wait">Kérjük, várjon.</string>
   <!-- Toast after the trimming / muting is done. [CHAR LIMIT=50] -->
@@ -430,7 +430,7 @@
   <!-- A label representing the action of importing media item(s) [CHAR LIMIT=20] -->
   <!-- A label that indicates the media import operation completed [CHAR LIMIT=20] -->
   <!--  Text of notification message which is shown when user attaches camera -->
-  <string name="ingest_scanning" msgid="2048262851775139720">Tartalom beolvasása...</string>
+  <string name="ingest_scanning" msgid="2048262851775139720">Tartalom beolvasása\u2026</string>
   <!-- String indicating how many media items from the camera have been scanned -->
   <plurals name="ingest_number_of_items_scanned">
     <item quantity="one">%1$d elem beolvasva</item>
@@ -442,11 +442,11 @@
     <item quantity="other">%1$d elem kijelölve</item>
   </plurals>
   <!--  Status message shown when content from the camera is being sorted -->
-  <string name="ingest_sorting" msgid="624687230903648118">Rendezés...</string>
+  <string name="ingest_sorting" msgid="624687230903648118">Rendezés\u2026</string>
   <!--  Status message shown when scanning the content from the camera has completed -->
   <string name="ingest_scanning_done">A beolvasás befejeződött.</string>
   <!--  Status message shown when content from an external camera is being imported -->
-  <string name="ingest_importing">Importálás...</string>
+  <string name="ingest_importing">Importálás\u2026</string>
   <!--  Status message shown when there is no content available to be imported -->
   <string name="ingest_empty_device">Nem áll rendelkezésre az eszközre importálható tartalom.</string>
   <!--  Status message shown when there is no MTP device connected  -->
@@ -464,15 +464,15 @@
   <!-- label for the icon meaning 'show me all the images that were taken with the camera' -->
   <string name="camera_label">Kamera</string>
   <!-- alert to the user to wait for some operation to complete -->
-  <string name="wait">Kérjük, várjon...</string>
+  <string name="wait">Kérjük, várjon\u2026</string>
   <!-- alert to the user that USB storage must be available before using the camera [CHAR LIMIT=NONE] -->
   <string name="no_storage" product="nosdcard">Kérjük, csatoljon egy USB-tárat a kamera használata előtt.</string>
   <!-- alert to the user that an SD card must be installed before using the camera -->
   <string name="no_storage" product="default">A kamera használatához helyezzen be egy SD-kártyát.</string>
   <!-- alert to the user that the USB storage is being disk-checked [CHAR LIMIT=30] -->
-  <string name="preparing_sd" product="nosdcard">Az USB-tár előkészítése...</string>
+  <string name="preparing_sd" product="nosdcard">Az USB-tár előkészítése\u2026</string>
   <!-- alert to the user that the SD card is being disk-checked -->
-  <string name="preparing_sd" product="default">SD-kártya előkészítése...</string>
+  <string name="preparing_sd" product="default">SD-kártya előkészítése\u2026</string>
   <!-- alert to the user that the camera fails to read or write the USB storage. [CHAR LIMIT=NONE] -->
   <string name="access_sd_fail" product="nosdcard">Nem lehet hozzáférni az USB-háttértárhoz</string>
   <!-- alert to the user that the camera fails to read or write the SD card. -->
@@ -665,7 +665,7 @@
   <!-- The text shown in the progress dialog when waiting for previous panorama finishing [CHAR LIMIT=40] -->
   <string name="pano_dialog_waiting_previous">Várakozás az előző panorámára</string>
   <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->
-  <string name="pano_review_saving_indication_str">Mentés...</string>
+  <string name="pano_review_saving_indication_str">Mentés\u2026</string>
   <!-- The text shown on the screen to indicate that the panorama is rendering [CHAR LIMIT=27] -->
   <string name="pano_review_rendering">Panorámakép megjelenítése</string>
   <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->
