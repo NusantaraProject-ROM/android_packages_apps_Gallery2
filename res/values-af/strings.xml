@@ -430,7 +430,7 @@
   <!-- A label representing the action of importing media item(s) [CHAR LIMIT=20] -->
   <!-- A label that indicates the media import operation completed [CHAR LIMIT=20] -->
   <!--  Text of notification message which is shown when user attaches camera -->
-  <string name="ingest_scanning" msgid="2048262851775139720">Skandeer tans inhoud...</string>
+  <string name="ingest_scanning" msgid="2048262851775139720">Scanning content\u2026</string>
   <!-- String indicating how many media items from the camera have been scanned -->
   <plurals name="ingest_number_of_items_scanned">
     <item quantity="one">%1$d item geskandeer</item>
@@ -442,11 +442,11 @@
     <item quantity="other">%1$d items selected</item>
   </plurals>
   <!--  Status message shown when content from the camera is being sorted -->
-  <string name="ingest_sorting" msgid="624687230903648118">Sorteer tans...</string>
+  <string name="ingest_sorting" msgid="624687230903648118">Sorting\u2026</string>
   <!--  Status message shown when scanning the content from the camera has completed -->
   <string name="ingest_scanning_done">Klaar geskandeer</string>
   <!--  Status message shown when content from an external camera is being imported -->
-  <string name="ingest_importing">Voer tans in...</string>
+  <string name="ingest_importing">Importing\u2026</string>
   <!--  Status message shown when there is no content available to be imported -->
   <string name="ingest_empty_device">Daar is geen inhoud beskikbaar om op hierdie toestel in te voer nie.</string>
   <!--  Status message shown when there is no MTP device connected  -->

@@ -450,7 +450,7 @@
   <!-- A label representing the action of importing media item(s) [CHAR LIMIT=20] -->
   <!-- A label that indicates the media import operation completed [CHAR LIMIT=20] -->
   <!--  Text of notification message which is shown when user attaches camera -->
-  <string name="ingest_scanning" msgid="2048262851775139720">جارٍ مسح المحتوى ضوئيًا...</string>
+  <string name="ingest_scanning" msgid="2048262851775139720">Scanning content\u2026</string>
   <!-- String indicating how many media items from the camera have been scanned -->
   <plurals name="ingest_number_of_items_scanned">
     <item quantity="zero">‏تم مسح %1$d من العناصر ضوئيًا</item>
@@ -470,11 +470,11 @@
     <item quantity="other">%1$d items selected</item>
   </plurals>
   <!--  Status message shown when content from the camera is being sorted -->
-  <string name="ingest_sorting" msgid="624687230903648118">جارٍ التصنيف...</string>
+  <string name="ingest_sorting" msgid="624687230903648118">Sorting\u2026</string>
   <!--  Status message shown when scanning the content from the camera has completed -->
   <string name="ingest_scanning_done">تم المسح الضوئي</string>
   <!--  Status message shown when content from an external camera is being imported -->
-  <string name="ingest_importing">جارٍ الاستيراد...</string>
+  <string name="ingest_importing">Importing\u2026</string>
   <!--  Status message shown when there is no content available to be imported -->
   <string name="ingest_empty_device">لا يتوفر أي محتوى لاستيراده على هذا الجهاز.</string>
   <!--  Status message shown when there is no MTP device connected  -->
