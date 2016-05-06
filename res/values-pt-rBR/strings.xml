@@ -20,47 +20,47 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Galeria</string>
   <!-- Title for picture frame gadget to show in list of all available gadgets -->
-  <string name="gadget_title">Picture frame</string>
+  <string name="gadget_title">Frames</string>
   <!-- Used to format short video duration in Details dialog. minutes:seconds e.g. 00:30 -->
   <string name="details_ms">%1$02d:%2$02d</string>
   <!-- Used to format video duration in Details dialog. hours:minutes:seconds e.g. 0:21:30 -->
   <string name="details_hms">%1$d:%2$02d:%3$02d</string>
   <!-- Activity label. This might show up in the activity-picker -->
-  <string name="movie_view_label">Video player</string>
+  <string name="movie_view_label">Reprodutor de vídeo</string>
   <!-- shown in the video player view while the video is being loaded, before it starts playing -->
-  <string name="loading_video">Loading video\u2026</string>
-  <string name="loading_image">Loading image\u2026</string>
+  <string name="loading_video">Carregando vídeo\u2026</string>
+  <string name="loading_image">Carregando imagem\u2026</string>
   <!-- Message shown on the progress dialog to indicate we're loading the
             account info [CHAR LIMIT=30] -->
-  <string name="loading_account">Loading account\u2026</string>
+  <string name="loading_account">Carregando conta\u2026</string>
   <!-- Movie View Resume Playing dialog title -->
-  <string name="resume_playing_title">Resume video</string>
+  <string name="resume_playing_title">Retomar vídeo</string>
   <!-- Movie View Start Playing dialog title -->
-  <string name="resume_playing_message">Resume playing from %s ?</string>
+  <string name="resume_playing_message">Continuar a reprodução a partir de %s ?</string>
   <!-- Movie View Start Playing button "Resume from bookmark" -->
   <string name="resume_playing_resume">Resume playing</string>
   <!-- Displayed in the title of those albums that are being loaded -->
   <string name="loading">Loading\u2026</string>
   <!-- Displayed in the title of those pictures that fails to be loaded
          [CHAR LIMIT=50]-->
-  <string name="fail_to_load">Couldn\'t load</string>
+  <string name="fail_to_load">Não foi possível carregar</string>
   <!-- Used in a toast message when an image fails to be loaded
          [CHAR LIMIT=50]-->
-  <string name="fail_to_load_image">Couldn\'t load the image</string>
+  <string name="fail_to_load_image">Não foi possível carregar a imagem</string>
   <!-- Displayed in place of the picture when we fail to get the thumbnail of it.
          [CHAR LIMIT=50]-->
-  <string name="no_thumbnail">No thumbnail</string>
+  <string name="no_thumbnail">Sem miniatura</string>
   <!-- Movie View Start Playing button "Beginning" -->
-  <string name="resume_playing_restart">Start over</string>
+  <string name="resume_playing_restart">Recomeçar</string>
   <!-- Title of a menu item to indicate performing the image crop operation
          [CHAR LIMIT=20] -->
-  <string name="crop_save_text">OK</string>
+  <string name="crop_save_text">Ok</string>
   <!-- Title of a menu item to indicate performing the image crop operation
          [CHAR LIMIT=20] -->
-  <string name="ok">OK</string>
+  <string name="ok">Ok</string>
   <!-- Button indicating that the cropped image should be reverted back to the original -->
   <!-- Hint that appears when cropping an image with more than one face -->
-  <string name="multiface_crop_help">Touch a face to begin.</string>
+  <string name="multiface_crop_help">Toque em um rosto para começar.</string>
   <!-- Toast/alert that the image is being saved to the SD card -->
   <string name="saving_image">Saving picture\u2026</string>
   <!-- Toast/alert that the image is being saved after editing in filtershow [CHAR LIMIT=40]-->
