@@ -65,9 +65,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <string name="media_controller_playing">Reproduzindo</string>
   <string name="media_controller_connecting">Conectando\u2026</string>
   <string name="bookmark_add">"Adicionar marcador"</string>
-  <string name="bookmark_display">"Show bookmarks"</string>
-  <string name="bookmark_empty">"No bookmarks"</string>
-  <string name="bookmark_exist">"Same bookmark in history"</string>
+  <string name="bookmark_display">"Visualizar favoritos"</string>
+  <string name="bookmark_empty">"Sem favoritos"</string>
+  <string name="bookmark_exist">"Mesmo favorito no histórico"</string>
   <string name="bookmark_add_success">"Adicionado a favoritos!"</string>
   <string name="bookmark_list">"Favoritos"</string>
   <string name="bookmark_title">"Título"</string>

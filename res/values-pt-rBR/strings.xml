@@ -97,9 +97,9 @@
     <item quantity="one">Excluir o item selecionado?</item>
     <item quantity="other">Excluir os itens selecionados?</item>
   </plurals>
-  <string name="confirm">Confirm</string>
-  <string name="cancel">Cancel</string>
-  <string name="share">Share</string>
+  <string name="confirm">Confirmar</string>
+  <string name="cancel">Cancelar</string>
+  <string name="share">Compartilhar</string>
   <string name="share_panorama">Compartilhar panorâmica</string>
   <string name="share_as_photo">Compart. como foto</string>
   <!-- The label shown after an image is deleted [CHAR LIMIT=16] -->
@@ -110,11 +110,11 @@
   <string name="select_all">Select all</string>
   <string name="deselect_all">Deselect all</string>
   <string name="slideshow">Slideshow</string>
-  <string name="details">Details</string>
-  <string name="details_title">%1$d of %2$d items:</string>
-  <string name="close">Close</string>
+  <string name="details">Detalhes</string>
+  <string name="details_title">%1$d de %2$d itens:</string>
+  <string name="close">Fechar</string>
   <!-- Title of a menu item to switch from Gallery to Camera app [CHAR LIMIT=30] -->
-  <string name="switch_to_camera">Switch to Camera</string>
+  <string name="switch_to_camera">Mudar para Câmera</string>
   <!-- String indicating how many media item(s) is(are) selected
             eg. 1 selected [CHAR LIMIT=30] -->
   <plurals name="number_of_items_selected">
@@ -135,10 +135,10 @@
   </plurals>
   <!-- String indicating timestamp of photo or video -->
   <string name="show_on_map">Show on map</string>
-  <string name="rotate_left">Rotate left</string>
-  <string name="rotate_right">Rotate right</string>
+  <string name="rotate_left">Girar para a esquerda</string>
+  <string name="rotate_right">Girar para a direita</string>
   <!-- Toast message prompted when the specified item is not found [CHAR LIMIT=40]-->
-  <string name="no_such_item">Couldn\'t find item.</string>
+  <string name="no_such_item">Não foi possível encontrar item.</string>
   <!-- String used as a menu label. The user can choose to edit the image
          [CHAR_LIMIT=20]-->
   <string name="edit">Edit</string>
