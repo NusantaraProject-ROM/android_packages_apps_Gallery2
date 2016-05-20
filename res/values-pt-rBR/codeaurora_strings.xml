@@ -73,5 +73,5 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <string name="bookmark_title">"Título"</string>
   <string name="bookmark_location">"Local"</string>
   <string name="delete_all">"Excluir todos"</string>
-  <string name="default_title">"Default title"</string>
+  <string name="default_title">"Título padrão"</string>
 </resources>
