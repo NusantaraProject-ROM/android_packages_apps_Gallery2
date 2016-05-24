@@ -353,8 +353,6 @@ public class FilterShowActivity extends FragmentActivity implements OnItemClickL
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         actionBar.setCustomView(R.layout.filtershow_actionbar);
-        actionBar.setBackgroundDrawable(new ColorDrawable(
-                getResources().getColor(R.color.background_screen)));
 
         mSaveButton = actionBar.getCustomView();
         mSaveButton.setOnClickListener(new OnClickListener() {
@@ -560,24 +558,15 @@ public class FilterShowActivity extends FragmentActivity implements OnItemClickL
     private void fillBorders() {
         FiltersManager filtersManager = FiltersManager.getManager();
         ArrayList<FilterRepresentation> borders = filtersManager.getBorders();
+        mCategoryBordersAdapter = new CategoryAdapter(this);
 
         for (int i = 0; i < borders.size(); i++) {
             FilterRepresentation filter = borders.get(i);
-            filter.setName(getString(R.string.borders));
+            filter.setName(getString(R.string.borders) + "" + i);
             if (i == 0) {
                 filter.setName(getString(R.string.none));
             }
-        }
-
-        if (mCategoryBordersAdapter != null) {
-            mCategoryBordersAdapter.clear();
-        }
-        mCategoryBordersAdapter = new CategoryAdapter(this);
-        for (FilterRepresentation representation : borders) {
-            if (representation.getTextId() != 0) {
-                representation.setName(getString(representation.getTextId()));
-            }
-            mCategoryBordersAdapter.add(new Action(this, representation, Action.FULL_VIEW));
+            mCategoryBordersAdapter.add(new Action(this, filter, Action.FULL_VIEW));
         }
     }
 
