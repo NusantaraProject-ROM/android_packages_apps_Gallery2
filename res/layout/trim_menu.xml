@@ -28,5 +28,6 @@
         android:textSize="14sp"
         android:gravity="left|center_vertical"
         android:drawableStart="@drawable/menu_save_photo"
-        android:drawablePadding="8dp" />
+        android:drawablePadding="8dp"
+        android:textColor="?android:attr/textColorPrimary" />
 </FrameLayout>
