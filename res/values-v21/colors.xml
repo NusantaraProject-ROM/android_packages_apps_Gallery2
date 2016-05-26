@@ -43,8 +43,11 @@
     <color name="ingest_date_tile_text">#777777</color>
 
     <!-- FAB -->
-    <color name="fab">#D32F2F</color>
+    <color name="fab">@color/accent</color>
     <color name="floating_action_button_touch_tint">#F44336</color>
     <color name="floating_action_button_icon_color">#ffffff</color>
 
+    <color name="primary">#ff5722</color>
+    <color name="primary_dark">#e64a19</color>
+    <color name="accent">#ffc107</color>
 </resources>
