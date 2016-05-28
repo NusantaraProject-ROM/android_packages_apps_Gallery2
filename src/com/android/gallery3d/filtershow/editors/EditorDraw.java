@@ -74,6 +74,7 @@ public class EditorDraw extends ParametricEditor implements FilterView {
             FilterDrawRepresentation.DEFAULT_MENU_COLOR3,
             FilterDrawRepresentation.DEFAULT_MENU_COLOR4,
             FilterDrawRepresentation.DEFAULT_MENU_COLOR5,
+            FilterDrawRepresentation.DEFAULT_MENU_COLOR6,
     };
     private EditorDrawTabletUI mTabletUI;
     private String mParameterString;
@@ -140,8 +141,11 @@ public class EditorDraw extends ParametricEditor implements FilterView {
     @Override
     public void openUtilityPanel(final LinearLayout accessoryViewList) {
         Button view = (Button) accessoryViewList.findViewById(R.id.applyEffect);
-
-        view.setText(mContext.getString(R.string.draw_color));
+        if (ParametricEditor.useCompact(mContext)) {
+            view.setText(mContext.getString(R.string.draw_color));
+        } else {
+            view.setText(mContext.getString(R.string.imageDraw));
+        }
         view.setOnClickListener(new OnClickListener() {
 
             @Override

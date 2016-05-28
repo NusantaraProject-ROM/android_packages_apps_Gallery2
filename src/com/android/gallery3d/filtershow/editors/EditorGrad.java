@@ -267,7 +267,7 @@ public class EditorGrad extends ParametricEditor
             return;
         }
         updateMenuItems(rep);
-        hackFixStrings(mPopupMenu.getMenu());
+        //hackFixStrings(mPopupMenu.getMenu());
         setEffectName();
         updateText();
 

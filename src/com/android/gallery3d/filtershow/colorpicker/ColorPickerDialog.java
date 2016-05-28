@@ -51,7 +51,6 @@ public class ColorPickerDialog extends Dialog   {
         int height = metrics.heightPixels*8/10;
         int width = metrics.widthPixels*8/10;
         getWindow().setLayout(width, height);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.filtershow_color_picker);
         mColorHueView = (ColorHueView) findViewById(R.id.ColorHueView);
         mColorSVRectView = (ColorSVRectView) findViewById(R.id.colorRectView);
@@ -61,8 +60,8 @@ public class ColorPickerDialog extends Dialog   {
         float[] hsvo = new float[] {
                 123, .9f, 1, 1 };
 
-        ImageButton apply = (ImageButton) findViewById(R.id.applyColorPick);
-        ImageButton cancel = (ImageButton) findViewById(R.id.cancelColorPick);
+        Button apply = (Button) findViewById(R.id.applyColorPick);
+        Button cancel = (Button) findViewById(R.id.cancelColorPick);
 
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +105,7 @@ public class ColorPickerDialog extends Dialog   {
         }
         setOnShowListener((FilterShowActivity) context);
         setOnDismissListener((FilterShowActivity) context);
+        setTitle(R.string.draw_color);
     }
 
     void toggleClick(ToggleButton v, int[] buttons, boolean isChecked) {

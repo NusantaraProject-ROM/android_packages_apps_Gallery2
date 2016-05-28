@@ -1,6 +1,5 @@
 package com.android.gallery3d.filtershow.controller;
 
-import android.app.ActionBar.LayoutParams;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -9,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.android.gallery3d.R;
@@ -37,10 +37,11 @@ public class ColorChooser implements Control {
             R.id.draw_color_button03,
             R.id.draw_color_button04,
             R.id.draw_color_button05,
+            R.id.draw_color_button06,
     };
     private Button[] mButton = new Button[mButtonsID.length];
 
-    int mSelectedButton = 0;
+    private int mSelectedButton = 0;
 
     @Override
     public void setUp(ViewGroup container, Parameter parameter, Editor editor) {
@@ -59,10 +60,11 @@ public class ColorChooser implements Control {
         mTopView.setVisibility(View.VISIBLE);
 
         mIconButton.clear();
-        LayoutParams lp = new LayoutParams(iconDim, iconDim);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(iconDim, iconDim);
         int [] palette = mParameter.getColorPalette();
         for (int i = 0; i < mButtonsID.length; i++) {
             final Button button = (Button) mTopView.findViewById(mButtonsID[i]);
+            button.setLayoutParams(lp);
             mButton[i] = button;
             float[] hsvo = new float[4];
             Color.colorToHSV(palette[i], hsvo);
@@ -80,7 +82,14 @@ public class ColorChooser implements Control {
                 }
             });
         }
-        Button button = (Button) mTopView.findViewById(R.id.draw_color_popupbutton);
+
+        if (mParameter != null) {
+            int value = mParameter.getValue();
+            if (value == 0) {
+                selectColor(mButton[0], 0);
+            }
+        }
+        ImageView button = (ImageView) mTopView.findViewById(R.id.draw_color_popupbutton);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +152,19 @@ public class ColorChooser implements Control {
         if (mParameter == null) {
             return;
         }
+
+        int value = mParameter.getValue();
+        for (int i = 0; i < mButtonsID.length; i++) {
+            final Button button = mButton[i];
+            float[] hsvo = (float[]) button.getTag();
+            int buttonValue = Color.HSVToColor((int) (hsvo[OPACITY_OFFSET] * 255), hsvo);
+            if (buttonValue == value) {
+                mSelectedButton = i;
+                break;
+            }
+        }
+
+        resetBorders();
     }
 
     public void changeSelectedColor(float[] hsvo) {

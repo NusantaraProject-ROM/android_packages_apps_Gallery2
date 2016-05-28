@@ -4,6 +4,7 @@ import android.app.ActionBar.LayoutParams;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,9 @@ public class StyleChooser implements Control {
     private View mTopView;
     private Vector<ImageButton> mIconButton = new Vector<ImageButton>();
     protected int mLayoutID = R.layout.filtershow_control_style_chooser;
+    private int mTransparent;
+    private int mSelected;
+    private int mSelectedStyle;
 
     @Override
     public void setUp(ViewGroup container, Parameter parameter, Editor editor) {
@@ -41,19 +45,28 @@ public class StyleChooser implements Control {
         int n = mParameter.getNumberOfStyles();
         mIconButton.clear();
         Resources res = context.getResources();
-        int dim = mTopView.getMeasuredWidth() / n;
+        mTransparent  = res.getColor(R.color.color_chooser_unslected_border);
+        mSelected    = res.getColor(R.color.color_chooser_slected_border);
+        int dim = mTopView.getMeasuredHeight();
         LayoutParams lp = new LayoutParams(dim, dim);
         for (int i = 0; i < n; i++) {
             final ImageButton button = new ImageButton(context);
-            button.setScaleType(ScaleType.CENTER_CROP);
+            button.setScaleType(ScaleType.CENTER_INSIDE);
             button.setLayoutParams(lp);
-            button.setBackgroundResource(android.R.color.transparent);
+            button.setBackgroundResource(R.drawable.filtershow_color_picker_circle);
             mIconButton.add(button);
+
+            GradientDrawable sd = ((GradientDrawable) button.getBackground());
+            sd.setColor(mTransparent);
+            sd.setStroke(3, (mSelectedStyle == i) ? mSelected : mTransparent);
+
             final int buttonNo = i;
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
+                    mSelectedStyle = buttonNo;
                     mParameter.setSelected(buttonNo);
+                    resetBorders();
                 }
             });
             mLinearLayout.addView(button);
@@ -86,6 +99,16 @@ public class StyleChooser implements Control {
         if (mParameter == null) {
             return;
         }
+        mSelectedStyle = mParameter.getSelected();
+        resetBorders();
     }
 
+    private void resetBorders() {
+        for (int i = 0; i < mParameter.getNumberOfStyles(); i++) {
+            final ImageButton button = mIconButton.get(i);
+            GradientDrawable sd = ((GradientDrawable) button.getBackground());
+            sd.setColor(mTransparent);
+            sd.setStroke(3, (mSelectedStyle == i) ? mSelected : mTransparent);
+        }
+    }
 }

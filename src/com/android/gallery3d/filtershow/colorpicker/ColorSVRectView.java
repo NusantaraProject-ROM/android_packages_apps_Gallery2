@@ -56,7 +56,7 @@ public class ColorSVRectView extends View implements ColorListener {
     private int mWidth;
     private int mHeight;
     public final static float DOT_SIZE = 20;
-    public final static float BORDER_SIZE = 20;
+    public final static float BORDER_SIZE = 0;
     Bitmap mBitmap;
 
     public ColorSVRectView(Context ctx, AttributeSet attrs) {

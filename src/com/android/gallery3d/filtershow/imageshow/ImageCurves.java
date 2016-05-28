@@ -115,7 +115,7 @@ public class ImageCurves extends ImageShow {
                 return true;
             }
         });
-        Editor.hackFixStrings(popupMenu.getMenu());
+        //Editor.hackFixStrings(popupMenu.getMenu());
         popupMenu.show();
         ((FilterShowActivity)getContext()).onShowMenu(popupMenu);
     }

@@ -55,7 +55,7 @@ public class ColorHueView extends View implements ColorListener {
     private float mDotY = mBorder;
 
     public final static float DOT_SIZE = 20;
-    public final static float BORDER_SIZE = 20;
+    public final static float BORDER_SIZE = 0;
     RectF mRect = new RectF();
     int[] mTmpBuff;
     float[] mTmpHSV = new float[3];

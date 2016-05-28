@@ -16,6 +16,7 @@
 
 package com.android.gallery3d.filtershow.editors;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -24,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -65,6 +67,7 @@ public class EditorColorBorderTabletUI {
             R.id.draw_color_button03,
             R.id.draw_color_button04,
             R.id.draw_color_button05,
+            R.id.draw_color_button06,
     };
 
     public void setColorBorderRepresentation(FilterColorBorderRepresentation rep) {
@@ -77,8 +80,12 @@ public class EditorColorBorderTabletUI {
         BasicParameterInt radius;
         radius = (BasicParameterInt) mRep.getParam(FilterColorBorderRepresentation.PARAM_RADIUS);
         mCBCornerSizeSeekBar.setMax(radius.getMaximum() - radius.getMinimum());
-        mCBCornerSizeSeekBar.setProgress(radius.getValue());
-
+        int value = radius.getValue();
+        if (value != 0) {
+            mCBCornerSizeSeekBar.setProgress(value);
+        } else {
+            mCBCornerSizeValue.setText(Integer.toString(value));
+        }
         ParameterColor color;
         color = (ParameterColor) mRep.getParam(FilterColorBorderRepresentation.PARAM_COLOR);
         mBasColors = color.getColorPalette();
@@ -140,7 +147,7 @@ public class EditorColorBorderTabletUI {
                 int type = FilterColorBorderRepresentation.PARAM_RADIUS;
                 BasicParameterInt size = (BasicParameterInt) mRep.getParam(type);
                 size.setValue(progress + size.getMinimum());
-                mCBCornerSizeValue.setText(size.getValue() + "");
+                mCBCornerSizeValue.setText(Integer.toString(size.getValue()));
                 mEditorDraw.commitLocalRepresentation();
             }
         });
@@ -150,7 +157,7 @@ public class EditorColorBorderTabletUI {
     private void setupColor(LinearLayout lp, Resources res) {
         final LinearLayout ctls = (LinearLayout) lp.findViewById(R.id.controls);
         final LinearLayout pick = (LinearLayout) lp.findViewById(R.id.colorPicker);
-        Button b = (Button) lp.findViewById(R.id.draw_color_popupbutton);
+        ImageView b = (ImageView) lp.findViewById(R.id.draw_color_popupbutton);
         b.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -164,10 +171,13 @@ public class EditorColorBorderTabletUI {
 
         mTransparent = res.getColor(R.color.color_chooser_unslected_border);
         mSelected = res.getColor(R.color.color_chooser_slected_border);
-
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(sIconDim, sIconDim);
         mColorButton = new Button[ids.length];
         for (int i = 0; i < ids.length; i++) {
-            mColorButton[i] = (Button) lp.findViewById(ids[i]);
+            final Button button = (Button) lp.findViewById(ids[i]);
+            button.setLayoutParams(params);
+            mColorButton[i] = button;
+
             float[] hsvo = new float[4];
             Color.colorToHSV(mBasColors[i], hsvo);
             hsvo[3] = (0xFF & (mBasColors[i] >> 24)) / (float) 255;

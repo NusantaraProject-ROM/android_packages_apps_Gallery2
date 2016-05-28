@@ -47,11 +47,12 @@ public class FilterDrawRepresentation extends FilterRepresentation {
     public static final int PARAM_COLOR = 2;
     private BasicParameterInt mParamSize = new BasicParameterInt(PARAM_SIZE, 30, 2, 300);
     private BasicParameterStyle mParamStyle = new BasicParameterStyle(PARAM_STYLE, 5);
-    public static int DEFAULT_MENU_COLOR1 = Color.RED & 0x80FFFFFF;
-    public static int DEFAULT_MENU_COLOR2 = Color.GREEN & 0x80FFFFFF;
-    public static int DEFAULT_MENU_COLOR3 = Color.BLUE & 0x80FFFFFF;
-    public static int DEFAULT_MENU_COLOR4 = Color.BLACK & 0x80FFFFFF;
-    public static int DEFAULT_MENU_COLOR5 = Color.WHITE & 0x80FFFFFF;
+    public static int DEFAULT_MENU_COLOR1 = Color.RED;
+    public static int DEFAULT_MENU_COLOR2 = Color.GREEN;
+    public static int DEFAULT_MENU_COLOR3 = Color.BLUE;
+    public static int DEFAULT_MENU_COLOR4 = Color.YELLOW;
+    public static int DEFAULT_MENU_COLOR5 = Color.BLACK;
+    public static int DEFAULT_MENU_COLOR6 = Color.WHITE;
     ParameterColor mParamColor = new ParameterColor(PARAM_COLOR,DEFAULT_MENU_COLOR1);
     int mParamMode;
     Parameter mCurrentParam = mParamSize;

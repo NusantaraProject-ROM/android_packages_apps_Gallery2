@@ -56,7 +56,7 @@ public class ColorBrightnessView extends View implements ColorListener {
     private float mDotX = mBorder;
     private float mDotY = mBorder;
     private final static float DOT_SIZE = ColorRectView.DOT_SIZE;
-    public final static float BORDER_SIZE = 20;;
+    public final static float BORDER_SIZE = 0;
 
     private ArrayList<ColorListener> mColorListeners = new ArrayList<ColorListener>();
 

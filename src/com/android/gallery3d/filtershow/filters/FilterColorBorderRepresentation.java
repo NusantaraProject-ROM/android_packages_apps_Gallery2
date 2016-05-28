@@ -39,7 +39,8 @@ public class FilterColorBorderRepresentation extends FilterRepresentation {
     public static int DEFAULT_MENU_COLOR2 = Color.BLACK;
     public static int DEFAULT_MENU_COLOR3 = Color.GRAY;
     public static int DEFAULT_MENU_COLOR4 = 0xFFFFCCAA;
-    public static int DEFAULT_MENU_COLOR5 = 0xFFAAAAAA;
+    public static int DEFAULT_MENU_COLOR5 = 0xFFcf6a26;
+    public static int DEFAULT_MENU_COLOR6 = 0xFFAAAAAA;
     private BasicParameterInt mParamSize = new BasicParameterInt(PARAM_SIZE, 3, 2, 30);
     private BasicParameterInt mParamRadius = new BasicParameterInt(PARAM_RADIUS, 2, 0, 100);
     private ParameterColor mParamColor = new ParameterColor(PARAM_COLOR, DEFAULT_MENU_COLOR1);
@@ -67,7 +68,8 @@ public class FilterColorBorderRepresentation extends FilterRepresentation {
                 DEFAULT_MENU_COLOR2,
                 DEFAULT_MENU_COLOR3,
                 DEFAULT_MENU_COLOR4,
-                DEFAULT_MENU_COLOR5});
+                DEFAULT_MENU_COLOR5,
+                DEFAULT_MENU_COLOR6});
     }
 
     public String toString() {

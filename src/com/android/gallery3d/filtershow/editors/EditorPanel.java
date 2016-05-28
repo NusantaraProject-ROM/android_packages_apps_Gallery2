@@ -89,10 +89,10 @@ public class EditorPanel extends Fragment {
             }
         });
 
-        Button toggleState = (Button) mMainView.findViewById(R.id.toggle_state);
+        //Button toggleState = (Button) mMainView.findViewById(R.id.toggle_state);
         mEditor = activity.getEditor(mEditorID);
         if (mEditor != null) {
-            mEditor.setUpEditorUI(actionControl, editControl, editTitle, toggleState);
+            mEditor.setUpEditorUI(actionControl, editControl, editTitle, /*toggleState*/null);
             mEditor.reflectCurrentFilter();
             if (mEditor.useUtilityPanel()) {
                 mEditor.openUtilityPanel((LinearLayout) actionControl);

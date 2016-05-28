@@ -62,7 +62,7 @@ public class ColorRectView extends View implements ColorListener {
     private int mWidth;
     private int mHeight;
     public final static float DOT_SIZE = 20;
-    public final static float BORDER_SIZE = 10;
+    public final static float BORDER_SIZE = 0;
 
     public ColorRectView(Context ctx, AttributeSet attrs) {
         super(ctx, attrs);
