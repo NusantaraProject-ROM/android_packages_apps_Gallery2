@@ -54,6 +54,7 @@ final class Config {
             slotViewSpec.colsPort = r.getInteger(R.integer.albumset_cols_port);
             slotViewSpec.slotGap = r.getDimensionPixelSize(R.dimen.albumset_slot_gap);
             slotViewSpec.slotHeightAdditional = 0;
+            slotViewSpec.usePadding = r.getBoolean(R.bool.config_grid_use_padding);
 
             paddingTop = r.getDimensionPixelSize(R.dimen.albumset_padding_top);
             paddingBottom = r.getDimensionPixelSize(R.dimen.albumset_padding_bottom);
@@ -112,6 +113,7 @@ final class Config {
             slotViewSpec.colsLand = r.getInteger(R.integer.album_cols_land);
             slotViewSpec.colsPort = r.getInteger(R.integer.album_cols_port);
             slotViewSpec.slotGap = r.getDimensionPixelSize(R.dimen.album_slot_gap);
+            slotViewSpec.usePadding = r.getBoolean(R.bool.config_grid_use_padding);
 
             paddingTop = r.getDimensionPixelSize(R.dimen.album_padding_top);
             paddingBottom = r.getDimensionPixelSize(R.dimen.album_padding_bottom);

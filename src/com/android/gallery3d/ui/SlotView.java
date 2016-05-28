@@ -416,6 +416,7 @@ public class SlotView extends GLView {
         public int colsLand = -1;
         public int colsPort = -1;
         public int slotGap = -1;
+        public boolean usePadding = true;
     }
 
     public class Layout {
@@ -510,19 +511,22 @@ public class SlotView extends GLView {
             if (unitCount == 0) unitCount = 1;
             mUnitCount = unitCount;
 
-            // We put extra padding above and below the column.
-            int availableUnits = Math.min(mUnitCount, mSlotCount);
-            int usedMinorLength = availableUnits * minorUnitSize +
-                    (availableUnits - 1) * mSlotGap;
-            padding[0] = (minorLength - usedMinorLength) / 2;
-
+            if (mSpec.usePadding) {
+                // We put extra padding above and below the column.
+                int availableUnits = Math.min(mUnitCount, mSlotCount);
+                int usedMinorLength = availableUnits * minorUnitSize +
+                        (availableUnits - 1) * mSlotGap;
+                padding[0] = (minorLength - usedMinorLength) / 2;
+            }
             // Then calculate how many columns we need for all slots.
             int count = ((mSlotCount + mUnitCount - 1) / mUnitCount);
             mContentLength = count * majorUnitSize + (count - 1) * mSlotGap;
 
-            // If the content length is less then the screen width, put
-            // extra padding in left and right.
-            padding[1] = Math.max(0, (majorLength - mContentLength) / 2);
+            if (mSpec.usePadding) {
+                // If the content length is less then the screen width, put
+                // extra padding in left and right.
+                padding[1] = Math.max(0, (majorLength - mContentLength) / 2);
+            }
         }
 
         private void initLayoutParameters() {

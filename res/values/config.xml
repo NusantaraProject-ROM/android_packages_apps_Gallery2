@@ -25,4 +25,7 @@
     <bool name="config_show_more_images">false</bool>
 
     <bool name="config_scroll_horizontal">false</bool>
+
+    <bool name="config_grid_use_padding">false</bool>
+
 </resources>
