@@ -25,6 +25,7 @@
         <item name="android:dialogTheme">@style/DialogTheme</item>
         <item name="android:alertDialogTheme">@style/DialogTheme</item>
         <item name="android:popupTheme">@style/PopupThemePrimary</item>
+        <item name="android:actionModeBackground">@drawable/actionmode_background</item>
     </style>
     <style name="DialogTheme" parent="@android:style/Theme.Material.Dialog">
         <item name="android:colorAccent">@color/accent</item>

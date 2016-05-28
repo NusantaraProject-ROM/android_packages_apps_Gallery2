@@ -156,7 +156,7 @@ public class PopupList {
         popup.setOnDismissListener(mOnDismissListener);
 
         popup.setBackgroundDrawable(mContext.getResources().getDrawable(
-                R.drawable.menu_dropdown_panel_holo_dark));
+                R.drawable.actionmode_background));
 
         mContentList = new ListView(mContext, null,
                 android.R.attr.dropDownListViewStyle);
