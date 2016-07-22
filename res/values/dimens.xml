@@ -180,4 +180,5 @@
 
     <dimen name="alert_dialog_padding_material">24dp</dimen>
     <dimen name="color_rect_width">32dp</dimen>
+    <dimen name="selected_frame_width">2dp</dimen>
 </resources>

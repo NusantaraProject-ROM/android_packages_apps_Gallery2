@@ -17,11 +17,13 @@
 package com.android.gallery3d.ui;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Rect;
 
 import com.android.gallery3d.R;
 import com.android.gallery3d.glrenderer.FadeOutTexture;
 import com.android.gallery3d.glrenderer.GLCanvas;
+import com.android.gallery3d.glrenderer.GLPaint;
 import com.android.gallery3d.glrenderer.NinePatchTexture;
 import com.android.gallery3d.glrenderer.ResourceTexture;
 import com.android.gallery3d.glrenderer.Texture;
@@ -32,15 +34,17 @@ public abstract class AbstractSlotRenderer implements SlotView.SlotRenderer {
     private final ResourceTexture mVideoPlayIcon;
     private final ResourceTexture mPanoramaIcon;
     private final NinePatchTexture mFramePressed;
-    private final NinePatchTexture mFrameSelected;
     private FadeOutTexture mFramePressedUp;
+    private GLPaint mFramePaint;
 
     protected AbstractSlotRenderer(Context context) {
         mVideoOverlay = new ResourceTexture(context, R.drawable.ic_video_thumb);
         mVideoPlayIcon = new ResourceTexture(context, R.drawable.ic_gallery_play);
         mPanoramaIcon = new ResourceTexture(context, R.drawable.ic_360pano_holo_light);
         mFramePressed = new NinePatchTexture(context, R.drawable.grid_pressed);
-        mFrameSelected = new NinePatchTexture(context, R.drawable.grid_selected);
+        mFramePaint = new GLPaint();
+        mFramePaint.setColor(context.getResources().getColor(R.color.accent));
+        mFramePaint.setLineWidth(context.getResources().getDimensionPixelSize(R.dimen.selected_frame_width));
     }
 
     protected void drawContent(GLCanvas canvas,
@@ -108,7 +112,7 @@ public abstract class AbstractSlotRenderer implements SlotView.SlotRenderer {
     }
 
     protected void drawSelectedFrame(GLCanvas canvas, int width, int height) {
-        drawFrame(canvas, mFrameSelected.getPaddings(), mFrameSelected, 0, 0, width, height);
+        canvas.drawRect(0, 0, width, height, mFramePaint);
     }
 
     protected static void drawFrame(GLCanvas canvas, Rect padding, Texture frame,
