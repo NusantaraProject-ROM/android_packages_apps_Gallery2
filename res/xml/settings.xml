@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
-     Copyright (C) 2007 The Android Open Source Project
+<!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,10 +14,15 @@
      limitations under the License.
 -->
 
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="layout_grid">Grid view</string>
-    <string name="layout_filmstrip">Filmstrip view</string>
-    <string name="slideshow_settings">Slideshow</string>
-    <string name="slideshow_random_title">Show in random order</string>
-    <string name="slideshow_repeat_title">Repeat</string>
-</resources>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/slideshow_settings" >
+        <CheckBoxPreference
+            android:key="slideshow_random"
+            android:title="@string/slideshow_random_title" />
+        <CheckBoxPreference
+            android:key="slideshow_repeat"
+            android:title="@string/slideshow_repeat_title"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

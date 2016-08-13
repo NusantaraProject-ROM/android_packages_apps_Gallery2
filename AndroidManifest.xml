@@ -332,8 +332,8 @@
         <uses-library android:name="com.google.android.media.effects"
                 android:required="false" />
 
-        <activity android:name="com.android.gallery3d.settings.GallerySettings"
-                android:theme="@style/Theme.Gallery"
+        <activity android:name="com.android.gallery3d.app.GallerySettings"
+                android:theme="@style/Theme.Settings"
                 android:configChanges="orientation|keyboardHidden|screenSize" />
 
         <activity android:name="com.android.gallery3d.util.ViewGifImage"

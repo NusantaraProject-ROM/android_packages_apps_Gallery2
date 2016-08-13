@@ -34,12 +34,14 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:actionBarStyle">@style/Material.ActionBar</item>
     </style>
-    <style name="Theme.Crop" parent="Theme.GalleryBase">
-        <item name="android:displayOptions"></item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:actionBarStyle">@style/Material.ActionBar</item>
+    <style name="Theme.Crop" parent="Theme.Gallery">
     </style>
     <style name="Theme.FilterShow" parent="Theme.Gallery">
+    </style>
+    <style name="Theme.Settings" parent="Theme.Gallery">
+    </style>
+    <style name="Theme.Gallery.Dialog" parent="DialogTheme"/>
+    <style name="DialogPickerTheme" parent="DialogTheme">
     </style>
     <style name="Material.ActionBar" parent="@android:style/Widget.Material.ActionBar">
         <item name="android:title"></item>

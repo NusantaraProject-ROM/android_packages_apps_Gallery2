@@ -153,8 +153,8 @@ public final class GalleryActivity extends AbstractGalleryActivity implements On
             }
             Bundle data = new Bundle();
             data.putString(SlideshowPage.KEY_SET_PATH, path.toString());
-            data.putBoolean(SlideshowPage.KEY_RANDOM_ORDER, true);
-            data.putBoolean(SlideshowPage.KEY_REPEAT, true);
+            data.putBoolean(SlideshowPage.KEY_RANDOM_ORDER, GalleryUtils.isRandomSlideshow(this));
+            data.putBoolean(SlideshowPage.KEY_REPEAT, GalleryUtils.isRepeatSlideshow(this));
             if (intent.getBooleanExtra(EXTRA_DREAM, false)) {
                 data.putBoolean(SlideshowPage.KEY_DREAM, true);
             }

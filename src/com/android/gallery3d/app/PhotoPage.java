@@ -1024,7 +1024,8 @@ public abstract class PhotoPage extends ActivityState implements
                 data.putString(SlideshowPage.KEY_SET_PATH, mMediaSet.getPath().toString());
                 data.putString(SlideshowPage.KEY_ITEM_PATH, path.toString());
                 data.putInt(SlideshowPage.KEY_PHOTO_INDEX, currentIndex);
-                data.putBoolean(SlideshowPage.KEY_REPEAT, true);
+                data.putBoolean(SlideshowPage.KEY_REPEAT, GalleryUtils.isRepeatSlideshow(mActivity));
+                data.putBoolean(SlideshowPage.KEY_RANDOM_ORDER, GalleryUtils.isRandomSlideshow(mActivity));
                 mActivity.getStateManager().startStateForResult(
                         SlideshowPage.class, REQUEST_SLIDESHOW, data);
                 return true;
@@ -1087,6 +1088,10 @@ public abstract class PhotoPage extends ActivityState implements
                 return true;
             case R.id.action_layout: {
                 switchToGrid();
+                return true;
+            }
+            case R.id.action_settings: {
+                mActivity.startActivity(new Intent(mActivity, GallerySettings.class));
                 return true;
             }
             default :

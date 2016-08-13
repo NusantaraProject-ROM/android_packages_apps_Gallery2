@@ -74,6 +74,8 @@ public class GalleryUtils {
     private static final String KEY_CAMERA_UPDATE = "camera-update";
     private static final String KEY_HAS_CAMERA = "has-camera";
     private static final String KEY_ALBUM_MODE = "album-mode";
+    private static final String KEY_RANDOM_SLIDESHOW = "slideshow_random";
+    private static final String KEY_REPEAT_SLIDESHOW = "slideshow_repeat";
 
     private static float sPixelDensity = -1f;
     private static boolean sCameraAvailableInitialized = false;
@@ -431,5 +433,15 @@ public class GalleryUtils {
     public static void setAlbumMode(Context context, int value) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         prefs.edit().putInt(KEY_ALBUM_MODE, value).commit();
+    }
+
+    public static boolean isRandomSlideshow(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean(KEY_RANDOM_SLIDESHOW, false);
+    }
+
+    public static boolean isRepeatSlideshow(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean(KEY_REPEAT_SLIDESHOW, true);
     }
 }

@@ -73,6 +73,9 @@
             android:title="@string/show_on_map"
             android:showAsAction="never" />
     <item android:id="@+id/print"
-          android:title="@string/print_image"
-          android:showAsAction="never" />
+            android:title="@string/print_image"
+            android:showAsAction="never" />
+    <item android:id="@+id/action_settings"
+            android:title="@string/settings"
+            android:showAsAction="never" />
 </menu>
