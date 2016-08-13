@@ -18,6 +18,7 @@ package com.android.gallery3d.data;
 
 import com.android.gallery3d.app.GalleryApp;
 
+// maxwen DISABLED!
 class ComboSource extends MediaSource {
     private static final int COMBO_ALBUMSET = 0;
     private static final int COMBO_ALBUM = 1;

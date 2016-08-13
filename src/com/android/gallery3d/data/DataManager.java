@@ -72,6 +72,7 @@ public class DataManager implements StitchingChangeListener {
 
     private static final String TAG = "DataManager";
 
+    // maxwen DISABLED!
     // This is the path for the media set seen by the user at top level.
     private static final String TOP_SET_PATH = "/combo/{/local/all,/picasa/all}";
 
@@ -118,8 +119,8 @@ public class DataManager implements StitchingChangeListener {
 
         // the order matters, the UriSource must come last
         addSource(new LocalSource(mApplication));
-        addSource(new PicasaSource(mApplication));
-        addSource(new ComboSource(mApplication));
+        //addSource(new PicasaSource(mApplication));
+        //addSource(new ComboSource(mApplication));
         addSource(new ClusterSource(mApplication));
         addSource(new FilterSource(mApplication));
         addSource(new SecureSource(mApplication));
@@ -136,9 +137,9 @@ public class DataManager implements StitchingChangeListener {
     public String getTopSetPath(int typeBits) {
 
         switch (typeBits) {
-            case INCLUDE_IMAGE: return TOP_IMAGE_SET_PATH;
-            case INCLUDE_VIDEO: return TOP_VIDEO_SET_PATH;
-            case INCLUDE_ALL: return TOP_SET_PATH;
+            case INCLUDE_IMAGE: return TOP_LOCAL_IMAGE_SET_PATH; //TOP_IMAGE_SET_PATH;
+            case INCLUDE_VIDEO: return TOP_LOCAL_VIDEO_SET_PATH; //TOP_VIDEO_SET_PATH;
+            case INCLUDE_ALL: return TOP_LOCAL_SET_PATH; //TOP_SET_PATH;
             case INCLUDE_LOCAL_IMAGE_ONLY: return TOP_LOCAL_IMAGE_SET_PATH;
             case INCLUDE_LOCAL_VIDEO_ONLY: return TOP_LOCAL_VIDEO_SET_PATH;
             case INCLUDE_LOCAL_ALL_ONLY: return TOP_LOCAL_SET_PATH;

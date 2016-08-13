@@ -266,7 +266,7 @@ public class GLRootView extends GLSurfaceView
             w = h;
             h = tmp;
         }
-        Log.i(TAG, "layout content pane " + w + "x" + h
+        Log.v(TAG, "layout content pane " + w + "x" + h
                 + " (compensation " + mCompensation + ")");
         if (mContentView != null && w != 0 && h != 0) {
             mContentView.layout(0, 0, w, h);

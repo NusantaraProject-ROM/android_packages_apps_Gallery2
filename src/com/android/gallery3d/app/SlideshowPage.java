@@ -27,6 +27,7 @@ import android.view.MotionEvent;
 import com.android.gallery3d.R;
 import com.android.gallery3d.common.Utils;
 import com.android.gallery3d.data.ContentListener;
+import com.android.gallery3d.data.DataManager;
 import com.android.gallery3d.data.MediaItem;
 import com.android.gallery3d.data.MediaObject;
 import com.android.gallery3d.data.MediaSet;
@@ -197,11 +198,9 @@ public class SlideshowPage extends ActivityState {
     private void initializeData(Bundle data) {
         boolean random = data.getBoolean(KEY_RANDOM_ORDER, false);
 
-        // We only want to show slideshow for images only, not videos.
         String mediaPath = data.getString(KEY_SET_PATH);
         mediaPath = FilterUtils.newFilterPath(mediaPath, FilterUtils.FILTER_IMAGE_ONLY);
         MediaSet mediaSet = mActivity.getDataManager().getMediaSet(mediaPath);
-
         if (random) {
             boolean repeat = data.getBoolean(KEY_REPEAT);
             mModel = new SlideshowDataAdapter(mActivity,
@@ -212,7 +211,7 @@ public class SlideshowPage extends ActivityState {
             String itemPath = data.getString(KEY_ITEM_PATH);
             Path path = itemPath != null ? Path.fromString(itemPath) : null;
             boolean repeat = data.getBoolean(KEY_REPEAT);
-            mModel = new SlideshowDataAdapter(mActivity, new SequentialSource(mediaSet, repeat),
+            mModel = new SlideshowDataAdapter(mActivity, new SequentialSourceRecursive(mediaSet, repeat),
                     index, path);
             setStateResult(Activity.RESULT_OK, mResultIntent.putExtra(KEY_PHOTO_INDEX, index));
         }
@@ -350,6 +349,59 @@ public class SlideshowPage extends ActivityState {
             if (version != mDataVersion) {
                 mDataVersion = version;
                 mData.clear();
+            }
+            return mDataVersion;
+        }
+
+        @Override
+        public void addContentListener(ContentListener listener) {
+            mMediaSet.addContentListener(listener);
+        }
+
+        @Override
+        public void removeContentListener(ContentListener listener) {
+            mMediaSet.removeContentListener(listener);
+        }
+    }
+
+    private static class SequentialSourceRecursive implements SlideshowDataAdapter.SlideshowSource {
+        private static final int RETRY_COUNT = 5;
+        private long mDataVersion = MediaObject.INVALID_DATA_VERSION;
+        private final MediaSet mMediaSet;
+        private final boolean mRepeat;
+        private int mTotal;
+
+        public SequentialSourceRecursive(MediaSet mediaSet, boolean repeat) {
+            mMediaSet = mediaSet;
+            mRepeat = repeat;
+        }
+
+        @Override
+        public int findItemIndex(Path path, int hint) {
+            return hint;
+        }
+
+        @Override
+        public MediaItem getMediaItem(int index) {
+            if (!mRepeat && index >= mTotal) return null;
+            if (mTotal == 0) return null;
+            if (mRepeat) {
+                index = index % mTotal;
+            }
+            MediaItem item = findMediaItem(mMediaSet, index);
+            for (int i = 0; i < RETRY_COUNT && item == null; ++i) {
+                Log.w(TAG, "fail to find image: " + index);
+                item = findMediaItem(mMediaSet, index);
+            }
+            return item;
+        }
+
+        @Override
+        public long reload() {
+            long version = mMediaSet.reload();
+            if (version != mDataVersion) {
+                mDataVersion = version;
+                mTotal = mMediaSet.getTotalMediaItemCount();
             }
             return mDataVersion;
         }

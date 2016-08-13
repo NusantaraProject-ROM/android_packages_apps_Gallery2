@@ -21,6 +21,10 @@
             android:icon="@drawable/camera"
             android:title="@string/switch_to_camera"
             android:showAsAction="ifRoom" />
+    <item android:id="@+id/action_slideshow"
+            android:icon="@drawable/slideshow"
+            android:title="@string/slideshow"
+            android:showAsAction="ifRoom" />
     <item android:id="@+id/action_select"
             android:title="@string/select_album"
             android:showAsAction="never" />
