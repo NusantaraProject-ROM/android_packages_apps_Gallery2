@@ -14,7 +14,8 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.gallery3d">
 
     <PreferenceCategory android:title="@string/slideshow_settings" >
         <CheckBoxPreference
@@ -24,5 +25,30 @@
             android:key="slideshow_repeat"
             android:title="@string/slideshow_repeat_title"
             android:defaultValue="true" />
+        <com.android.gallery3d.settings.SeekBarPreference
+            android:key="slideshow_duration"
+            android:title="@string/slideshow_duration_title"
+            android:max="10"
+            android:defaultValue="3"
+            settings:min="1"
+            settings:unitsLeft=""
+            settings:unitsRight="@string/unit_sec"/>
     </PreferenceCategory>
+    <!--<PreferenceCategory android:title="@string/video_settings" >
+        <PreferenceScreen
+            android:key="video_one"
+            android:title="@string/video_one_title" >
+            <intent
+                android:targetPackage="com.android.gallery3d"
+                android:targetClass="org.codeaurora.gallery3d.video.SettingsActivity" />         
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="video_two"
+            android:title="@string/video_two_title" >
+            <intent
+                android:targetPackage="com.android.gallery3d"
+                android:targetClass="org.codeaurora.gallery3d.video.VideoSettingsActivity" />         
+        </PreferenceScreen>
+    </PreferenceCategory>-->
 </PreferenceScreen>

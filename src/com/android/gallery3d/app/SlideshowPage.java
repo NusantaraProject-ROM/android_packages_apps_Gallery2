@@ -38,6 +38,7 @@ import com.android.gallery3d.ui.SlideshowView;
 import com.android.gallery3d.ui.SynchronizedHandler;
 import com.android.gallery3d.util.Future;
 import com.android.gallery3d.util.FutureListener;
+import com.android.gallery3d.util.GalleryUtils;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -52,7 +53,7 @@ public class SlideshowPage extends ActivityState {
     public static final String KEY_REPEAT = "repeat";
     public static final String KEY_DREAM = "dream";
 
-    private static final long SLIDESHOW_DELAY = 3000; // 3 seconds
+    private static final int SLIDESHOW_DELAY = 3000; // 3 seconds
 
     private static final int MSG_LOAD_NEXT_BITMAP = 1;
     private static final int MSG_SHOW_PENDING_BITMAP = 2;
@@ -84,6 +85,7 @@ public class SlideshowPage extends ActivityState {
     private Slide mPendingSlide = null;
     private boolean mIsActive = false;
     private final Intent mResultIntent = new Intent();
+    private int mDuration = SLIDESHOW_DELAY;
 
     @Override
     protected int getBackgroundColorId() {
@@ -135,6 +137,7 @@ public class SlideshowPage extends ActivityState {
                 }
             }
         };
+        mDuration = GalleryUtils.getSlideshowDuration(mActivity);
         initializeViews();
         initializeData(data);
     }
@@ -166,7 +169,7 @@ public class SlideshowPage extends ActivityState {
         setStateResult(Activity.RESULT_OK, mResultIntent
                 .putExtra(KEY_ITEM_PATH, slide.item.getPath().toString())
                 .putExtra(KEY_PHOTO_INDEX, slide.index));
-        mHandler.sendEmptyMessageDelayed(MSG_LOAD_NEXT_BITMAP, SLIDESHOW_DELAY);
+        mHandler.sendEmptyMessageDelayed(MSG_LOAD_NEXT_BITMAP, mDuration);
     }
 
     @Override
@@ -218,7 +221,7 @@ public class SlideshowPage extends ActivityState {
     }
 
     private void initializeViews() {
-        mSlideshowView = new SlideshowView();
+        mSlideshowView = new SlideshowView(mDuration);
         mRootPane.addComponent(mSlideshowView);
         setContentPane(mRootPane);
     }

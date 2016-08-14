@@ -21,4 +21,9 @@
     <string name="slideshow_settings">Slideshow</string>
     <string name="slideshow_random_title">Show in random order</string>
     <string name="slideshow_repeat_title">Repeat</string>
+    <string name="unit_sec">sec</string>
+    <string name="slideshow_duration_title">Delay time</string>
+    <string name="video_settings">Video</string>
+    <string name="video_one_title">Video1</string>
+    <string name="video_two_title">Video2</string>
 </resources>

@@ -48,6 +48,11 @@ public class SlideshowView extends GLView {
             new FloatAnimation(0, 1, TRANSITION_DURATION);
 
     private Random mRandom = new Random();
+    private int mDuration = SLIDESHOW_DURATION;
+
+    public SlideshowView(int duration) {
+        mDuration = duration + 500;
+    }
 
     public void next(Bitmap bitmap, int rotation) {
 
@@ -131,7 +136,7 @@ public class SlideshowView extends GLView {
             mMovingVector = new PointF(
                     MOVE_SPEED * mWidth * (random.nextFloat() - 0.5f),
                     MOVE_SPEED * mHeight * (random.nextFloat() - 0.5f));
-            setDuration(SLIDESHOW_DURATION);
+            setDuration(mDuration);
         }
 
         @Override
