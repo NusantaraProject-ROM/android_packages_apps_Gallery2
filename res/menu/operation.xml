@@ -34,7 +34,7 @@
             android:title="@string/delete"
             android:visible="false"
             android:showAsAction="ifRoom" />
-    <item android:id="@+id/action_edit"
+    <!--<item android:id="@+id/action_edit"
             android:title="@string/edit"
             android:showAsAction="never"
             android:visible="false" />
@@ -62,5 +62,5 @@
     <item android:id="@+id/action_show_on_map"
             android:title="@string/show_on_map"
             android:showAsAction="never"
-            android:visible="false" />
+            android:visible="false" />-->
 </menu>
