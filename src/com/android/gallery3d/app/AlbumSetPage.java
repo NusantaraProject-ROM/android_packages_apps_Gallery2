@@ -664,11 +664,13 @@ public class AlbumSetPage extends ActivityState implements
     private class MyLoadingListener implements LoadingListener {
         @Override
         public void onLoadingStarted() {
+            mActivity.showProgress();
             setLoadingBit(BIT_LOADING_RELOAD);
         }
 
         @Override
         public void onLoadingFinished(boolean loadingFailed) {
+            mActivity.hideProgress();
             clearLoadingBit(BIT_LOADING_RELOAD);
         }
     }
