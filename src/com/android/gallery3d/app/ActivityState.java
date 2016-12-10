@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
-import android.os.BatteryManager;
 import android.os.Bundle;
 import android.view.HapticFeedbackConstants;
 import android.view.Menu;
@@ -40,17 +39,8 @@ import com.android.gallery3d.ui.PreparePageFadeoutTexture;
 import com.android.gallery3d.util.GalleryUtils;
 
 abstract public class ActivityState {
-    protected static final int FLAG_HIDE_ACTION_BAR = 1;
-    protected static final int FLAG_HIDE_STATUS_BAR = 2;
-    protected static final int FLAG_SCREEN_ON_WHEN_PLUGGED = 4;
-    protected static final int FLAG_SCREEN_ON_ALWAYS = 8;
-    protected static final int FLAG_ALLOW_LOCK_WHILE_SCREEN_ON = 16;
-    protected static final int FLAG_SHOW_WHEN_LOCKED = 32;
-
     protected AbstractGalleryActivity mActivity;
     protected Bundle mData;
-    protected int mFlags;
-
     protected ResultEntry mReceivedResults;
     protected ResultEntry mResult;
 
@@ -61,7 +51,6 @@ abstract public class ActivityState {
     }
 
     private boolean mDestroyed = false;
-    private boolean mPlugged = false;
     boolean mIsFinishing = false;
 
     private static final String KEY_TRANSITION_IN = "transition-in";
@@ -130,43 +119,6 @@ abstract public class ActivityState {
     protected void clearStateResult() {
     }
 
-    BroadcastReceiver mPowerIntentReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            final String action = intent.getAction();
-            if (Intent.ACTION_BATTERY_CHANGED.equals(action)) {
-                boolean plugged = (0 != intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0));
-
-                if (plugged != mPlugged) {
-                    mPlugged = plugged;
-                    setScreenFlags();
-                }
-            }
-        }
-    };
-
-    private void setScreenFlags() {
-        final Window win = mActivity.getWindow();
-        final WindowManager.LayoutParams params = win.getAttributes();
-        if ((0 != (mFlags & FLAG_SCREEN_ON_ALWAYS)) ||
-                (mPlugged && 0 != (mFlags & FLAG_SCREEN_ON_WHEN_PLUGGED))) {
-            params.flags |= WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
-        } else {
-            params.flags &= ~WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
-        }
-        if (0 != (mFlags & FLAG_ALLOW_LOCK_WHILE_SCREEN_ON)) {
-            params.flags |= WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON;
-        } else {
-            params.flags &= ~WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON;
-        }
-        if (0 != (mFlags & FLAG_SHOW_WHEN_LOCKED)) {
-            params.flags |= WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
-        } else {
-            params.flags &= ~WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
-        }
-        win.setAttributes(params);
-    }
-
     protected void transitionOnNextPause(Class<? extends ActivityState> outgoing,
             Class<? extends ActivityState> incoming, StateTransitionAnimation.Transition hint) {
         if (outgoing == SinglePhotoPage.class && incoming == AlbumPage.class) {
@@ -184,9 +136,6 @@ abstract public class ActivityState {
     }
 
     protected void onPause() {
-        if (0 != (mFlags & FLAG_SCREEN_ON_WHEN_PLUGGED)) {
-            ((Activity) mActivity).unregisterReceiver(mPowerIntentReceiver);
-        }
         if (mNextTransition != StateTransitionAnimation.Transition.None) {
             mActivity.getTransitionStore().put(KEY_TRANSITION_IN, mNextTransition);
             PreparePageFadeoutTexture.prepareFadeOutTexture(mActivity, mContentPane);
@@ -199,11 +148,6 @@ abstract public class ActivityState {
         AbstractGalleryActivity activity = mActivity;
         ActionBar actionBar = activity.getActionBar();
         if (actionBar != null) {
-            if ((mFlags & FLAG_HIDE_ACTION_BAR) != 0) {
-                actionBar.hide();
-            } else {
-                actionBar.show();
-            }
             int stateCount = mActivity.getStateManager().getStateCount();
             mActivity.getGalleryActionBar().setDisplayOptions(stateCount > 1, true);
             // Default behavior, this can be overridden in ActivityState's onResume.
@@ -212,19 +156,10 @@ abstract public class ActivityState {
 
         activity.invalidateOptionsMenu();
 
-        setScreenFlags();
-
         ResultEntry entry = mReceivedResults;
         if (entry != null) {
             mReceivedResults = null;
             onStateResult(entry.requestCode, entry.resultCode, entry.resultData);
-        }
-
-        if (0 != (mFlags & FLAG_SCREEN_ON_WHEN_PLUGGED)) {
-            // we need to know whether the device is plugged in to do this correctly
-            final IntentFilter filter = new IntentFilter();
-            filter.addAction(Intent.ACTION_BATTERY_CHANGED);
-            activity.registerReceiver(mPowerIntentReceiver, filter);
         }
 
         onResume();

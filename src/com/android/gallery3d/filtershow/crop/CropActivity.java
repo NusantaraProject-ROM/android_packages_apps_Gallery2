@@ -98,9 +98,6 @@ public class CropActivity extends Activity {
         Intent intent = getIntent();
         setResult(RESULT_CANCELED, new Intent());
         mCropExtras = getExtrasFromIntent(intent);
-        if (mCropExtras != null && mCropExtras.getShowWhenLocked()) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
-        }
 
         setContentView(R.layout.crop_activity);
         mCropView = (CropView) findViewById(R.id.cropView);
@@ -664,7 +661,6 @@ public class CropActivity extends Activity {
                     extras.getBoolean(CropExtras.KEY_RETURN_DATA, false),
                     (Uri) extras.getParcelable(MediaStore.EXTRA_OUTPUT),
                     extras.getString(CropExtras.KEY_OUTPUT_FORMAT),
-                    extras.getBoolean(CropExtras.KEY_SHOW_WHEN_LOCKED, false),
                     extras.getFloat(CropExtras.KEY_SPOTLIGHT_X),
                     extras.getFloat(CropExtras.KEY_SPOTLIGHT_Y));
         }

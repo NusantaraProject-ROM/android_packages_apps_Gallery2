@@ -91,7 +91,6 @@ public abstract class PhotoPage extends ActivityState implements
     //private static final int MSG_HIDE_BARS = 1;
     private static final int MSG_ON_FULL_SCREEN_CHANGED = 4;
     private static final int MSG_UPDATE_ACTION_BAR = 5;
-    private static final int MSG_UNFREEZE_GLROOT = 6;
     private static final int MSG_WANT_BARS = 7;
     private static final int MSG_ON_CAMERA_CENTER = 9;
     private static final int MSG_ON_PICTURE_CENTER = 10;
@@ -102,7 +101,6 @@ public abstract class PhotoPage extends ActivityState implements
     private static final int MSG_UPDATE_PANORAMA_UI = 16;
 
     private static final int HIDE_BARS_TIMEOUT = 3500;
-    private static final int UNFREEZE_GLROOT_TIMEOUT = 250;
 
     private static final int REQUEST_SLIDESHOW = 1;
     private static final int REQUEST_CROP = 2;
@@ -122,7 +120,6 @@ public abstract class PhotoPage extends ActivityState implements
     public static final String KEY_TREAT_BACK_AS_UP = "treat-back-as-up";
     public static final String KEY_START_IN_FILMSTRIP = "start-in-filmstrip";
     public static final String KEY_RETURN_INDEX_HINT = "return-index-hint";
-    public static final String KEY_SHOW_WHEN_LOCKED = "show_when_locked";
     public static final String KEY_IN_CAMERA_ROLL = "in_camera_roll";
     public static final String KEY_READONLY = "read-only";
 
@@ -272,10 +269,6 @@ public abstract class PhotoPage extends ActivityState implements
                         wantBars();
                         break;
                     }
-                    case MSG_UNFREEZE_GLROOT: {
-                        mActivity.getGLRoot().unfreeze();
-                        break;
-                    }
                     case MSG_UPDATE_DEFERRED: {
                         long nextUpdate = mDeferUpdateUntil - SystemClock.uptimeMillis();
                         if (nextUpdate <= 0) {
@@ -386,11 +379,6 @@ public abstract class PhotoPage extends ActivityState implements
                 mScreenNailItem = (SnailItem) mActivity.getDataManager()
                         .getMediaObject(screenNailItemPath);
                 mScreenNailItem.setScreenNail(mAppBridge.attachScreenNail());
-
-                if (data.getBoolean(KEY_SHOW_WHEN_LOCKED, false)) {
-                    // Set the flag to be on top of the lock screen.
-                    mFlags |= FLAG_SHOW_WHEN_LOCKED;
-                }
 
                 // Don't display "empty album" action item for capture intents.
                 if (!mSetPathString.equals("/local/all/0")) {
@@ -1358,9 +1346,6 @@ public abstract class PhotoPage extends ActivityState implements
         super.onPause();
         mIsActive = false;
 
-        mActivity.getGLRoot().unfreeze();
-        mHandler.removeMessages(MSG_UNFREEZE_GLROOT);
-
         // Hide the detail dialog on exit
         if (mShowDetails) {
             hideDetails();
@@ -1380,7 +1365,6 @@ public abstract class PhotoPage extends ActivityState implements
 
     @Override
     public void onCurrentImageUpdated() {
-        mActivity.getGLRoot().unfreeze();
     }
 
     @Override
@@ -1455,7 +1439,6 @@ public abstract class PhotoPage extends ActivityState implements
         mShowBars = true;
         showBottomControl(false);
 
-        mActivity.getGLRoot().freeze();
         mIsActive = true;
         setContentPane(mRootPane);
 
@@ -1475,7 +1458,6 @@ public abstract class PhotoPage extends ActivityState implements
             mHaveImageEditor = haveImageEditor;
         }
         mRecenterCameraOnResume = true;
-        mHandler.sendEmptyMessageDelayed(MSG_UNFREEZE_GLROOT, UNFREEZE_GLROOT_TIMEOUT);
     }
 
     @Override

@@ -32,7 +32,6 @@ public class CropExtras {
     public static final String KEY_DATA = "data";
     public static final String KEY_SPOTLIGHT_X = "spotlightX";
     public static final String KEY_SPOTLIGHT_Y = "spotlightY";
-    public static final String KEY_SHOW_WHEN_LOCKED = "showWhenLocked";
     public static final String KEY_OUTPUT_FORMAT = "outputFormat";
 
     private int mOutputX = 0;
@@ -44,13 +43,12 @@ public class CropExtras {
     private boolean mReturnData = false;
     private Uri mExtraOutput = null;
     private String mOutputFormat = null;
-    private boolean mShowWhenLocked = false;
     private float mSpotlightX = 0;
     private float mSpotlightY = 0;
 
     public CropExtras(int outputX, int outputY, boolean scaleUp, int aspectX, int aspectY,
             boolean setAsWallpaper, boolean returnData, Uri extraOutput, String outputFormat,
-            boolean showWhenLocked, float spotlightX, float spotlightY) {
+            float spotlightX, float spotlightY) {
         mOutputX = outputX;
         mOutputY = outputY;
         mScaleUp = scaleUp;
@@ -60,14 +58,13 @@ public class CropExtras {
         mReturnData = returnData;
         mExtraOutput = extraOutput;
         mOutputFormat = outputFormat;
-        mShowWhenLocked = showWhenLocked;
         mSpotlightX = spotlightX;
         mSpotlightY = spotlightY;
     }
 
     public CropExtras(CropExtras c) {
         this(c.mOutputX, c.mOutputY, c.mScaleUp, c.mAspectX, c.mAspectY, c.mSetAsWallpaper,
-                c.mReturnData, c.mExtraOutput, c.mOutputFormat, c.mShowWhenLocked,
+                c.mReturnData, c.mExtraOutput, c.mOutputFormat,
                 c.mSpotlightX, c.mSpotlightY);
     }
 
@@ -105,10 +102,6 @@ public class CropExtras {
 
     public String getOutputFormat() {
         return mOutputFormat;
-    }
-
-    public boolean getShowWhenLocked() {
-        return mShowWhenLocked;
     }
 
     public float getSpotlightX() {
