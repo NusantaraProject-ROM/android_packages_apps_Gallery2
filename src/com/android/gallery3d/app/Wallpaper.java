@@ -112,8 +112,9 @@ public class Wallpaper extends Activity {
                 if (extras != null) {
                     fromScreenColor = extras.getBoolean(KEY_FROM_SCREENCOLOR, false);
                 }
-                if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) && (!fromScreenColor)) {
-                    WallpaperManager wpm = WallpaperManager.getInstance(getApplicationContext());
+                WallpaperManager wpm = WallpaperManager.getInstance(getApplicationContext());
+
+                /*if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) && (!fromScreenColor)) {
                     try {
                         cropAndSetWallpaperIntent = wpm.getCropAndSetWallpaperIntent(mPickedItem);
                         startActivity(cropAndSetWallpaperIntent);
@@ -124,7 +125,7 @@ public class Wallpaper extends Activity {
                     } catch (IllegalArgumentException iae) {
                         // ignored; fallthru to existing crop activity
                     }
-                }
+                }*/
 
                 int width,height;
                 float spotlightX,spotlightY;
@@ -135,8 +136,8 @@ public class Wallpaper extends Activity {
                     spotlightX = extras.getFloat(KEY_SPOTLIGHT_X, 0);
                     spotlightY = extras.getFloat(KEY_SPOTLIGHT_Y, 0);
                 } else {
-                    width = getWallpaperDesiredMinimumWidth();
-                    height = getWallpaperDesiredMinimumHeight();
+                    width = wpm.getDesiredMinimumWidth();
+                    height = wpm.getDesiredMinimumHeight();
                     Point size = getDefaultDisplaySize(new Point());
                     spotlightX = (float) size.x / width;
                     spotlightY = (float) size.y / height;
