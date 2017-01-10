@@ -581,8 +581,9 @@ public class CropActivity extends Activity {
                                 failure = true;
                             } else {
                                 try {
+                                    int wallpaperType = mCropExtras.getWallpaperType();
                                     mWPManager.setStream(new ByteArrayInputStream(tmpOut
-                                            .toByteArray()));
+                                                .toByteArray()), null, true, wallpaperType);
                                 } catch (IOException e) {
                                     Log.w(LOGTAG, "cannot write stream to wallpaper", e);
                                     failure = true;
@@ -662,7 +663,8 @@ public class CropActivity extends Activity {
                     (Uri) extras.getParcelable(MediaStore.EXTRA_OUTPUT),
                     extras.getString(CropExtras.KEY_OUTPUT_FORMAT),
                     extras.getFloat(CropExtras.KEY_SPOTLIGHT_X),
-                    extras.getFloat(CropExtras.KEY_SPOTLIGHT_Y));
+                    extras.getFloat(CropExtras.KEY_SPOTLIGHT_Y),
+                    extras.getInt(CropExtras.KEY_WALLPAPER_TYPE, CropExtras.DEFAULT_WALLPAPER_TYPE));
         }
         return null;
     }

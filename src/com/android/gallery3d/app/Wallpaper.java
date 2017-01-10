@@ -18,8 +18,11 @@ package com.android.gallery3d.app;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.WallpaperManager;
 import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.graphics.Point;
 import android.net.Uri;
@@ -30,6 +33,7 @@ import android.view.Display;
 import com.android.gallery3d.common.ApiHelper;
 import com.android.gallery3d.filtershow.crop.CropActivity;
 import com.android.gallery3d.filtershow.crop.CropExtras;
+import com.android.gallery3d.R;
 
 import java.lang.IllegalArgumentException;
 
@@ -142,23 +146,44 @@ public class Wallpaper extends Activity {
                     spotlightX = (float) size.x / width;
                     spotlightY = (float) size.y / height;
                 }
-
-                //Don't set wallpaper from screencolor.
+                boolean setWallpaper = !fromScreenColor;
                 cropAndSetWallpaperIntent = new Intent(CropActivity.CROP_ACTION)
-                    .setClass(this, CropActivity.class)
-                    .setDataAndType(mPickedItem, IMAGE_TYPE)
-                    .addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT)
-                    .putExtra(CropExtras.KEY_OUTPUT_X, width)
-                    .putExtra(CropExtras.KEY_OUTPUT_Y, height)
-                    .putExtra(CropExtras.KEY_ASPECT_X, width)
-                    .putExtra(CropExtras.KEY_ASPECT_Y, height)
-                    .putExtra(CropExtras.KEY_SPOTLIGHT_X, spotlightX)
-                    .putExtra(CropExtras.KEY_SPOTLIGHT_Y, spotlightY)
-                    .putExtra(CropExtras.KEY_SCALE, true)
-                    .putExtra(CropExtras.KEY_SCALE_UP_IF_NEEDED, true)
-                    .putExtra(CropExtras.KEY_SET_AS_WALLPAPER, !fromScreenColor);
-                startActivity(cropAndSetWallpaperIntent);
-                finish();
+                        .setClass(this, CropActivity.class)
+                        .setDataAndType(mPickedItem, IMAGE_TYPE)
+                        .addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT)
+                        .putExtra(CropExtras.KEY_OUTPUT_X, width)
+                        .putExtra(CropExtras.KEY_OUTPUT_Y, height)
+                        .putExtra(CropExtras.KEY_ASPECT_X, width)
+                        .putExtra(CropExtras.KEY_ASPECT_Y, height)
+                        .putExtra(CropExtras.KEY_SPOTLIGHT_X, spotlightX)
+                        .putExtra(CropExtras.KEY_SPOTLIGHT_Y, spotlightY)
+                        .putExtra(CropExtras.KEY_SCALE, true)
+                        .putExtra(CropExtras.KEY_SCALE_UP_IF_NEEDED, true);
+
+                if (setWallpaper) {
+                    AlertDialog.Builder wallpaperTypeDialog = new AlertDialog.Builder(this);
+                    wallpaperTypeDialog.setTitle(getResources().getString(R.string.wallpaper_type_dialog_title));
+                    wallpaperTypeDialog.setItems(R.array.wallpaper_type_list, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int item) {
+                            int wallpaperType = CropExtras.DEFAULT_WALLPAPER_TYPE;
+                            if (item == 1) {
+                                wallpaperType = WallpaperManager.FLAG_SYSTEM;
+                            } else if (item == 2) {
+                                wallpaperType = WallpaperManager.FLAG_LOCK;
+                            }
+                            cropAndSetWallpaperIntent.putExtra(CropExtras.KEY_SET_AS_WALLPAPER, true)
+                                    .putExtra(CropExtras.KEY_WALLPAPER_TYPE, wallpaperType);
+                            startActivity(cropAndSetWallpaperIntent);
+                            finish();
+                        }
+                    });
+                    AlertDialog d = wallpaperTypeDialog.create();
+                    d.show();
+                } else {
+                    cropAndSetWallpaperIntent.putExtra(CropExtras.KEY_SET_AS_WALLPAPER, false);
+                    startActivity(cropAndSetWallpaperIntent);
+                    finish();
+                }
             }
         }
     }

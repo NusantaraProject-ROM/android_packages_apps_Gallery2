@@ -251,8 +251,7 @@
         <service android:name="com.android.gallery3d.ingest.IngestService" />
 
         <activity android:name="com.android.gallery3d.app.Wallpaper"
-                android:configChanges="keyboardHidden|orientation|screenSize"
-                android:theme="@style/android:Theme.Translucent.NoTitleBar">
+                android:configChanges="keyboardHidden|orientation|screenSize" >
             <intent-filter android:label="@string/camera_setas_wallpaper">
                 <action android:name="android.intent.action.ATTACH_DATA" />
                 <data android:mimeType="image/*" />

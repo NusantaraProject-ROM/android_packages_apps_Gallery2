@@ -31,4 +31,8 @@
     <string name="type">Type</string>
     <string name="type_videos">Videos</string>
     <string name="type_images">Images</string>
-    </resources>
+    <string name="wallpaper_type_dialog_title">Set wallpaper</string>
+    <string name="wallpaper_type_both">Home screen and lock screen</string>
+    <string name="wallpaper_type_system">Home screen</string>
+    <string name="wallpaper_type_lock">Lock screen</string>
+</resources>
