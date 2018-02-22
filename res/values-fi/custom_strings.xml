@@ -15,4 +15,13 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="video_settings">Video</string>
+  <string name="video_one_title">Video1</string>
+  <string name="video_two_title">Video2</string>
+  <string name="wallpaper_type_dialog_title">Aseta taustakuva</string>
+  <string name="wallpaper_type_lock">Lukitusnäyttö</string>
+  <string name="scrolling_wall_dialog_title">Rajaa taustakuva</string>
+  <string name="scrolling_wall_yes">Ei</string>
+  <string name="scrolling_wall_no">Kyllä</string>
+</resources>
