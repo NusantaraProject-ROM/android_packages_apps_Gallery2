@@ -16,6 +16,27 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="layout_grid">Vista de cuadrícula</string>
+  <string name="layout_filmstrip">Vista de tira de película</string>
+  <string name="slideshow_settings">Presentación</string>
+  <string name="slideshow_random_title">Mostrar en orden aleatorio</string>
+  <string name="slideshow_repeat_title">Repetir</string>
+  <string name="unit_sec">seg</string>
+  <string name="slideshow_duration_title">Tiempo de retardo</string>
+  <string name="video_settings">Video</string>
+  <string name="video_one_title">Video1</string>
+  <string name="video_two_title">Video2</string>
+  <string name="group_by_type">Por tipo</string>
+  <string name="types">Tipos</string>
+  <string name="type">Tipo</string>
+  <string name="type_videos">Vídeos</string>
+  <string name="type_images">Imágenes</string>
+  <string name="wallpaper_type_dialog_title">Establecer fondo</string>
+  <string name="wallpaper_type_both">Pantalla principal y pantalla de bloqueo</string>
+  <string name="wallpaper_type_system">Pantalla de inicio</string>
+  <string name="wallpaper_type_lock">Pantalla de bloqueo</string>
+  <string name="scrolling_wall_dialog_text">¿Quiere recortar el fondo para el tamaño de la pantalla\u003f</string>
+  <string name="scrolling_wall_dialog_title">Recortar fondo de pantalla</string>
   <string name="scrolling_wall_yes">No</string>
   <string name="scrolling_wall_no">Sí</string>
 </resources>
