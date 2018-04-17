@@ -15,4 +15,24 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="layout_filmstrip">Kinolent baxışı</string>
+  <string name="slideshow_repeat_title">Təkrar et</string>
+  <string name="unit_sec">san</string>
+  <string name="video_settings">Vídeo</string>
+  <string name="video_one_title">Video1</string>
+  <string name="video_two_title">Video2</string>
+  <string name="group_by_type">Tipə görə</string>
+  <string name="types">Tiplər</string>
+  <string name="type">Tip</string>
+  <string name="type_videos">Videolar</string>
+  <string name="type_images">Şəkillər</string>
+  <string name="wallpaper_type_dialog_title">Divarkağızı seç</string>
+  <string name="wallpaper_type_both">Əsas ekran və kilid ekranı</string>
+  <string name="wallpaper_type_system">Əsas ekran</string>
+  <string name="wallpaper_type_lock">Kilid ekranı</string>
+  <string name="scrolling_wall_dialog_text">Divar kağızını ekranın ölçüsünə görə kəsmək istəyirsinizmi?\u003f</string>
+  <string name="scrolling_wall_dialog_title">Divar kağızını qırp</string>
+  <string name="scrolling_wall_yes">Xeyr</string>
+  <string name="scrolling_wall_no">Bəli</string>
+</resources>
