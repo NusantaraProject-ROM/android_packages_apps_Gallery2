@@ -15,4 +15,28 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="layout_grid">Rasterweergave</string>
+  <string name="layout_filmstrip">Filmstrookweergave</string>
+  <string name="slideshow_settings">Diavoorstelling</string>
+  <string name="slideshow_random_title">Toon in willekeurige volgorde</string>
+  <string name="slideshow_repeat_title">Herhalen</string>
+  <string name="unit_sec">sec</string>
+  <string name="slideshow_duration_title">Vertragingstijd</string>
+  <string name="video_settings">Video</string>
+  <string name="video_one_title">Video1</string>
+  <string name="video_two_title">Video2</string>
+  <string name="group_by_type">Op type</string>
+  <string name="types">Types</string>
+  <string name="type">Type</string>
+  <string name="type_videos">Video\'s</string>
+  <string name="type_images">Afbeeldingen</string>
+  <string name="wallpaper_type_dialog_title">Achtergrond instellen</string>
+  <string name="wallpaper_type_both">Begin- en vergrendelscherm</string>
+  <string name="wallpaper_type_system">Beginscherm</string>
+  <string name="wallpaper_type_lock">Vergrendelscherm</string>
+  <string name="scrolling_wall_dialog_text">Wilt u de achtergrond bijsnijden tot scherm grootte\u003f</string>
+  <string name="scrolling_wall_dialog_title">Achtergrond bijsnijden</string>
+  <string name="scrolling_wall_yes">Nee</string>
+  <string name="scrolling_wall_no">Ja</string>
+</resources>
