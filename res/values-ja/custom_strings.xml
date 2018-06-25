@@ -15,4 +15,28 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="layout_grid">グリッド表示</string>
+  <string name="layout_filmstrip">フィルムストリップ表示</string>
+  <string name="slideshow_settings">スライドショー</string>
+  <string name="slideshow_random_title">ランダムな順序で表示する</string>
+  <string name="slideshow_repeat_title">繰り返し</string>
+  <string name="unit_sec">秒</string>
+  <string name="slideshow_duration_title">遅延時間</string>
+  <string name="video_settings">ビデオ</string>
+  <string name="video_one_title">Video1</string>
+  <string name="video_two_title">Video2</string>
+  <string name="group_by_type">種類別</string>
+  <string name="types">種類</string>
+  <string name="type">種類</string>
+  <string name="type_videos">ビデオ</string>
+  <string name="type_images">画像</string>
+  <string name="wallpaper_type_dialog_title">壁紙を設定</string>
+  <string name="wallpaper_type_both">ホーム画面とロック画面</string>
+  <string name="wallpaper_type_system">ホーム画面</string>
+  <string name="wallpaper_type_lock">ロック画面</string>
+  <string name="scrolling_wall_dialog_text">画面サイズに壁紙を切り抜きますか\u003f</string>
+  <string name="scrolling_wall_dialog_title">壁紙のトリミング</string>
+  <string name="scrolling_wall_yes">いいえ</string>
+  <string name="scrolling_wall_no">はい</string>
+</resources>
