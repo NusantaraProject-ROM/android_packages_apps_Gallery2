@@ -41,7 +41,7 @@
                         android:id="@+id/imageName"
                         style="?android:textAppearanceSmall"
                         android:textStyle="bold"
-                        android:textColor="#80ffffff"
+                        android:textColor="#a0ffffff"
                         android:layout_gravity="start"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                         android:id="@+id/imageSize"
                         style="?android:textAppearanceSmall"
                         android:textAllCaps="true"
-                        android:textColor="#80ffffff"
+                        android:textColor="#a0ffffff"
                         android:textStyle="bold"
                         android:layout_gravity="end"
                         android:layout_width="0dp"
@@ -91,7 +91,7 @@
                     style="?android:textAppearanceLarge"
                     android:id="@+id/exifLabel"
                     android:textStyle="bold"
-                    android:textColor="#fff"
+                    android:textColor="#a0ffffff"
                     android:layout_marginTop="16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -104,6 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_gravity="start"
+                    android:textColor="#a0ffffff"
                     />
         </LinearLayout>
     </ScrollView>
