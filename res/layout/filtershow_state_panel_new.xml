@@ -26,7 +26,7 @@
                 android:id="@+id/listStates"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="48dip"
+                android:layout_height="40dip"
                 custom:elemEndSize="128dip"
                 custom:elemSize="128dip"
                 android:layout_margin="0dip"
@@ -37,7 +37,7 @@
     <ImageButton
             android:id="@+id/toggleVersionsPanel"
             android:layout_width="wrap_content"
-            android:layout_height="48dip"
+            android:layout_height="40dip"
             android:src="@drawable/filtershow_versions_compare"
             style="?android:attr/borderlessButtonStyle"
             android:layout_gravity="center"/>
