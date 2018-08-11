@@ -43,3 +43,9 @@ LOCAL_PROGUARD_ENABLED := disabled
 LOCAL_JAVA_LIBRARIES := org.apache.http.legacy
 
 include $(BUILD_PACKAGE)
+
+ifeq ($(strip $(LOCAL_PACKAGE_OVERRIDES)),)
+
+include $(call all-makefiles-under, $(LOCAL_PATH))
+
+endif
