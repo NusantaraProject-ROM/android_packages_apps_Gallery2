@@ -30,13 +30,13 @@
     <color name="filtershow_background">#ff171717</color>
     <color name="filtershow_graphic">#717171</color>
     <color name="filtershow_stateview_end_background">#1d1d1d</color>
-    <color name="filtershow_stateview_end_text">#a7a7a7</color>
+    <color name="filtershow_stateview_end_text">#FFFFFF</color>
     <color name="filtershow_stateview_background">#464646</color>
     <color name="filtershow_stateview_text">#FFFFFF</color>
     <color name="filtershow_stateview_selected_background">#c8c8c8</color>
     <color name="filtershow_stateview_selected_text">#000000</color>
     <color name="filtershow_categoryview_background">#ff171717</color>
-    <color name="filtershow_categoryview_text">#a7a7a7</color>
+    <color name="filtershow_categoryview_text">#FFFFFF</color>
     <color name="filtershow_category_selection">@color/accent</color>
     <color name="gradcontrol_point_center">#ffffffff</color>
     <color name="gradcontrol_point_edge">#ffffffff</color>
@@ -50,5 +50,5 @@
     <color name="color_chooser_unslected_border">#00000000</color>
     <color name="color_chooser_slected_border">@color/accent</color>
     <color name="button_selected">@color/accent</color>
-    <color name="button_unselected">#90ffffff</color>
+    <color name="button_unselected">#FFFFFF</color>
 </resources>

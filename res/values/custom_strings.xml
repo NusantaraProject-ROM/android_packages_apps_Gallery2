@@ -39,4 +39,5 @@
     <string name="scrolling_wall_dialog_title">Crop wallpaper</string>
     <string name="scrolling_wall_yes">No</string>
     <string name="scrolling_wall_no">Yes</string>
+    <string name="title_activity_filter_show_new">Editor</string>
 </resources>

@@ -165,7 +165,7 @@ public class FilterDrawRepresentation extends FilterRepresentation {
         setFilterType(FilterRepresentation.TYPE_VIGNETTE);
         setTextId(R.string.imageDraw);
         setEditorId(EditorDraw.ID);
-        setOverlayId(R.drawable.filtershow_drawing);
+        setOverlayId(R.drawable.filtershow_button_drawing);
         setOverlayOnly(true);
     }
 

@@ -22,8 +22,11 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
@@ -161,15 +164,13 @@ public class Action implements RenderingRequestCaller {
     private void drawCenteredImage(Bitmap source, Bitmap destination, boolean scale) {
         int minSide = Math.min(destination.getWidth(), destination.getHeight());
         Matrix m = new Matrix();
-        float scaleFactor = minSide / (float) Math.min(source.getWidth(), source.getHeight());
 
-        float dx = (destination.getWidth() - source.getWidth() * scaleFactor) / 2.0f;
-        float dy = (destination.getHeight() - source.getHeight() * scaleFactor) / 2.0f;
+        float dx = (destination.getWidth() - source.getWidth()) / 2.0f;
+        float dy = (destination.getHeight() - source.getHeight()) / 2.0f;
         if (mImageFrame.height() > mImageFrame.width()) {
             // if portrait
             dy -= mTextSize;
         }
-        m.setScale(scaleFactor, scaleFactor);
         m.postTranslate(dx, dy);
         Canvas canvas = new Canvas(destination);
         canvas.drawBitmap(source, m, new Paint(Paint.FILTER_BITMAP_FLAG));
@@ -184,9 +185,8 @@ public class Action implements RenderingRequestCaller {
             return;
         }
         if (mRepresentation.getOverlayId() != 0 && mOverlayBitmap == null) {
-            mOverlayBitmap = BitmapFactory.decodeResource(
-                    mContext.getResources(),
-                    mRepresentation.getOverlayId());
+            mOverlayBitmap = getBitmapDrawable(mContext.getResources().getDrawable(
+                    mRepresentation.getOverlayId()));
         }
         if (mOverlayBitmap != null) {
             if (getRepresentation().getFilterType() == FilterRepresentation.TYPE_BORDER) {
@@ -195,7 +195,7 @@ public class Action implements RenderingRequestCaller {
                         new Rect(0, 0, mImage.getWidth(), mImage.getHeight()), new Paint());
             } else {
                 Canvas canvas = new Canvas(mImage);
-                canvas.drawARGB(128, 0, 0, 0);
+                canvas.drawARGB(100, 0, 0, 0);
                 drawCenteredImage(mOverlayBitmap, mImage, false);
             }
         }
@@ -226,5 +226,22 @@ public class Action implements RenderingRequestCaller {
             MasterImage.getImage().getBitmapCache().cache(mImage);
         }
         mImage = null;
+    }
+
+    private Bitmap getBitmapDrawable(Drawable image) {
+        if (image == null) {
+            return null;
+        }
+        final int overlaySize = mContext.getResources().getDimensionPixelSize(
+                R.dimen.effect_setting_item_icon_width);
+        final Canvas canvas = new Canvas();
+        canvas.setDrawFilter(new PaintFlagsDrawFilter(Paint.ANTI_ALIAS_FLAG,
+                Paint.FILTER_BITMAP_FLAG));
+
+        Bitmap bmResult = Bitmap.createBitmap(overlaySize, overlaySize, Bitmap.Config.ARGB_8888);
+        canvas.setBitmap(bmResult);
+        image.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        image.draw(canvas);
+        return bmResult;
     }
 }

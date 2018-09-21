@@ -1,5 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
+        android:id="@+id/saveButton"
+        android:icon="@drawable/menu_save_photo"
+        android:showAsAction="always"
+        android:title="@string/save_and_exit"/>
+    <item
         android:id="@+id/menu_share"
         android:showAsAction="never"
         android:visible="false"

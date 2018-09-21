@@ -140,7 +140,7 @@ public class FilterShowActivity extends FragmentActivity implements OnItemClickL
     public static final boolean RESET_TO_LOADED = false;
     private ImageShow mImageShow = null;
 
-    private View mSaveButton = null;
+    private MenuItem mSaveButton;
 
     private EditorPlaceHolder mEditorPlaceHolder = new EditorPlaceHolder(this);
     private Editor mCurrentEditor = null;
@@ -348,16 +348,7 @@ public class FilterShowActivity extends FragmentActivity implements OnItemClickL
         setContentView(R.layout.filtershow_activity);
 
         ActionBar actionBar = getActionBar();
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        actionBar.setCustomView(R.layout.filtershow_actionbar);
-
-        mSaveButton = actionBar.getCustomView();
-        mSaveButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                saveImage();
-            }
-        });
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_TITLE);
 
         mImageShow = (ImageShow) findViewById(R.id.imageShow);
         mImageViews.add(mImageShow);
@@ -1014,6 +1005,7 @@ public class FilterShowActivity extends FragmentActivity implements OnItemClickL
         MenuItem shareItem = mMenu.findItem(R.id.menu_share);
         //shareItem.setVisible(true);
         mMasterImage.getHistory().setMenuItems(undoItem, redoItem, resetItem);
+        mSaveButton = mMenu.findItem(R.id.saveButton);
     }
 
     @Override
@@ -1057,7 +1049,7 @@ public class FilterShowActivity extends FragmentActivity implements OnItemClickL
                 return true;
             }
             case android.R.id.home: {
-                saveImage();
+                onBackPressed();
                 return true;
             }
             case R.id.manageUserPresets: {
@@ -1072,6 +1064,11 @@ public class FilterShowActivity extends FragmentActivity implements OnItemClickL
                 print();
                 return true;
             }
+            case R.id.saveButton: {
+                saveImage();
+                return true;
+            }
+
         }
         return false;
     }
