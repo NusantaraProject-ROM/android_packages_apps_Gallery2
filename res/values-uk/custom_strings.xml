@@ -15,4 +15,22 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="slideshow_settings">Слайд-шоу</string>
+    <string name="unit_sec">сек</string>
+    <string name="video_settings">Відео</string>
+    <string name="video_one_title">Відео1</string>
+    <string name="video_two_title">Відео2</string>
+    <string name="types">Типи</string>
+    <string name="type">Тип</string>
+    <string name="type_videos">Відео</string>
+    <string name="type_images">Зображення</string>
+    <string name="wallpaper_type_dialog_title">Установити фон</string>
+    <string name="wallpaper_type_both">Домашній екран та екран блокування</string>
+    <string name="wallpaper_type_system">Домашній екран</string>
+    <string name="wallpaper_type_lock">Екран блокування</string>
+    <string name="scrolling_wall_dialog_text">Ви хочете обрізати шпалери по розміру екрана</string>
+    <string name="scrolling_wall_dialog_title">Обрізати фоновий малюнок</string>
+    <string name="scrolling_wall_yes">Ні</string>
+    <string name="scrolling_wall_no">Так</string>
+</resources>

@@ -15,4 +15,28 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="layout_grid">Widok siatki</string>
+    <string name="layout_filmstrip">Widok taśmy filmowej</string>
+    <string name="slideshow_settings">Pokaz slajdów</string>
+    <string name="slideshow_random_title">W kolejności losowej</string>
+    <string name="slideshow_repeat_title">Powtarzaj</string>
+    <string name="unit_sec">sec</string>
+    <string name="slideshow_duration_title">Opóźniony w czasie</string>
+    <string name="video_settings">Wideo</string>
+    <string name="video_one_title">Wideo1</string>
+    <string name="video_two_title">Wideo2</string>
+    <string name="group_by_type">Według typu</string>
+    <string name="types">Typy</string>
+    <string name="type">Typ</string>
+    <string name="type_videos">Filmy</string>
+    <string name="type_images">Zdjęcia</string>
+    <string name="wallpaper_type_dialog_title">Ustaw tapetę</string>
+    <string name="wallpaper_type_both">Ekran główny i ekran blokady</string>
+    <string name="wallpaper_type_system">Ekran główny</string>
+    <string name="wallpaper_type_lock">Ekran blokady</string>
+    <string name="scrolling_wall_dialog_text">Czy chcesz przyciąć tapetę do rozmiaru wyświetlacza\u003f</string>
+    <string name="scrolling_wall_dialog_title">Przytnij tapetę</string>
+    <string name="scrolling_wall_yes">Nie</string>
+    <string name="scrolling_wall_no">Tak</string>
+</resources>

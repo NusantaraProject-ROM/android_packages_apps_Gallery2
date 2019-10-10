@@ -15,4 +15,28 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="layout_grid">عرض الشبكة</string>
+    <string name="layout_filmstrip">عرض شريط الصور</string>
+    <string name="slideshow_settings">عرض الشرائح</string>
+    <string name="slideshow_random_title">عرض بترتيب عشوائي</string>
+    <string name="slideshow_repeat_title">تكرار</string>
+    <string name="unit_sec">ثانية</string>
+    <string name="slideshow_duration_title">وقت التأخير</string>
+    <string name="video_settings">فيديو</string>
+    <string name="video_one_title">فيديو1</string>
+    <string name="video_two_title">فيديو2</string>
+    <string name="group_by_type">حسب النوع</string>
+    <string name="types">الأنواع</string>
+    <string name="type">النوع</string>
+    <string name="type_videos">مقاطع فيديو</string>
+    <string name="type_images">الصور</string>
+    <string name="wallpaper_type_dialog_title">تعيين الخلفية</string>
+    <string name="wallpaper_type_both">الشاشة الرئيسية وقفل الشاشة</string>
+    <string name="wallpaper_type_system">الشاشة الرئيسية</string>
+    <string name="wallpaper_type_lock">قفل الشاشة</string>
+    <string name="scrolling_wall_dialog_text">هل تريد اقتصاص الخلفية إلى حجم العرض؟</string>
+    <string name="scrolling_wall_dialog_title">اقتصاص الخلفية</string>
+    <string name="scrolling_wall_yes">لا</string>
+    <string name="scrolling_wall_no">نعم</string>
+</resources>

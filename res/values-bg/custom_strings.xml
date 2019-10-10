@@ -15,4 +15,26 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="layout_grid">Изглед мрежа</string>
+    <string name="layout_filmstrip">Изглед „Филмова лента“</string>
+    <string name="slideshow_settings">Снимкова въртележка</string>
+    <string name="slideshow_random_title">Показване в произволен ред</string>
+    <string name="slideshow_repeat_title">Повтаряне</string>
+    <string name="unit_sec">сек.</string>
+    <string name="video_settings">Видео</string>
+    <string name="video_one_title">Видео1</string>
+    <string name="video_two_title">Видео2</string>
+    <string name="types">Видове</string>
+    <string name="type">Вид</string>
+    <string name="type_videos">Видеоклипове</string>
+    <string name="type_images">Изображения</string>
+    <string name="wallpaper_type_dialog_title">Задаване на тапет</string>
+    <string name="wallpaper_type_both">Начален екран и заключване на екрана</string>
+    <string name="wallpaper_type_system">Начален екран</string>
+    <string name="wallpaper_type_lock">Заключване на екрана</string>
+    <string name="scrolling_wall_dialog_text">Искате ли да изрежете тапета до големината на екрана\u003f</string>
+    <string name="scrolling_wall_dialog_title">Подрязване на тапета</string>
+    <string name="scrolling_wall_yes">Не</string>
+    <string name="scrolling_wall_no">Да</string>
+</resources>

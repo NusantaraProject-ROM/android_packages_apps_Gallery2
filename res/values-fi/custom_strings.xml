@@ -16,22 +16,27 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="layout_grid">Ruudukkonäkymä</string>
-  <string name="layout_filmstrip">Filminauhanäkymä</string>
-  <string name="slideshow_settings">Kuvaesitys</string>
-  <string name="slideshow_repeat_title">Toisto</string>
-  <string name="unit_sec">s</string>
-  <string name="video_settings">Video</string>
-  <string name="video_one_title">Video1</string>
-  <string name="video_two_title">Video2</string>
-  <string name="type_videos">Videot</string>
-  <string name="type_images">Kuvat</string>
-  <string name="wallpaper_type_dialog_title">Aseta taustakuva</string>
-  <string name="wallpaper_type_both">Aloitusnäyttö ja lukitusnäyttö</string>
-  <string name="wallpaper_type_system">Aloitusnäyttö</string>
-  <string name="wallpaper_type_lock">Lukitusnäyttö</string>
-  <string name="scrolling_wall_dialog_text">Haluatko rajata taustakuvan näytön kokoon\u003f</string>
-  <string name="scrolling_wall_dialog_title">Rajaa taustakuva</string>
-  <string name="scrolling_wall_yes">Ei</string>
-  <string name="scrolling_wall_no">Kyllä</string>
+    <string name="layout_grid">Ruudukkonäkymä</string>
+    <string name="layout_filmstrip">Filminauhanäkymä</string>
+    <string name="slideshow_settings">Kuvaesitys</string>
+    <string name="slideshow_random_title">Näytä satunnaisessa järjestyksessä</string>
+    <string name="slideshow_repeat_title">Toisto</string>
+    <string name="unit_sec">s</string>
+    <string name="slideshow_duration_title">Viiveaika</string>
+    <string name="video_settings">Video</string>
+    <string name="video_one_title">Video1</string>
+    <string name="video_two_title">Video2</string>
+    <string name="group_by_type">Tyypin mukaan</string>
+    <string name="types">Tyypit</string>
+    <string name="type">Tyyppi</string>
+    <string name="type_videos">Videot</string>
+    <string name="type_images">Kuvat</string>
+    <string name="wallpaper_type_dialog_title">Aseta taustakuva</string>
+    <string name="wallpaper_type_both">Aloitusnäyttö ja lukitusnäyttö</string>
+    <string name="wallpaper_type_system">Aloitusnäyttö</string>
+    <string name="wallpaper_type_lock">Lukitusnäyttö</string>
+    <string name="scrolling_wall_dialog_text">Haluatko rajata taustakuvan näytön kokoon\u003f</string>
+    <string name="scrolling_wall_dialog_title">Rajaa taustakuva</string>
+    <string name="scrolling_wall_yes">Ei</string>
+    <string name="scrolling_wall_no">Kyllä</string>
 </resources>
