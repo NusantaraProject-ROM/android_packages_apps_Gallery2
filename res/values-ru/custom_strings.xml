@@ -39,4 +39,5 @@
     <string name="scrolling_wall_dialog_title">Кадрировать обои</string>
     <string name="scrolling_wall_yes">Нет</string>
     <string name="scrolling_wall_no">Да</string>
+    <string name="title_activity_filter_show_new">Редактор</string>
 </resources>
