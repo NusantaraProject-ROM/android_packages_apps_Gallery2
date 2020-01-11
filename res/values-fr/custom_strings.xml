@@ -39,4 +39,5 @@
     <string name="scrolling_wall_dialog_title">Rogner le fond d\'écran</string>
     <string name="scrolling_wall_yes">Non</string>
     <string name="scrolling_wall_no">Oui</string>
+    <string name="title_activity_filter_show_new">Editeur</string>
 </resources>
