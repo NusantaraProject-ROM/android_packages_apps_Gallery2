@@ -63,7 +63,7 @@ class BucketHelper {
     // "(2" to match it.
     private static final String BUCKET_GROUP_BY = "1) GROUP BY 1,(2";
 
-    private static final String BUCKET_ORDER_BY = "MAX(datetaken) DESC";
+    private static final String BUCKET_ORDER_BY = ImageColumns.BUCKET_DISPLAY_NAME + " COLLATE NOCASE ASC";
 
     // Before HoneyComb there is no Files table. Thus, we need to query the
     // bucket info from the Images and Video tables and then merge them
@@ -135,8 +135,8 @@ class BucketHelper {
         Arrays.sort(entries, new Comparator<BucketEntry>() {
             @Override
             public int compare(BucketEntry a, BucketEntry b) {
-                // sorted by dateTaken in descending order
-                return b.dateTaken - a.dateTaken;
+                // sorted by name
+                return b.bucketName.compareTo(a.bucketName);
             }
         });
         return entries;

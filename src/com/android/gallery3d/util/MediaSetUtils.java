@@ -26,8 +26,6 @@ import com.android.gallery3d.data.Path;
 import java.util.Comparator;
 
 public class MediaSetUtils {
-    public static final Comparator<MediaSet> NAME_COMPARATOR = new NameComparator();
-
     private static String mRoot = Environment.getExternalStorageDirectory().toString();
 
     public static void setRoot(String root) {
@@ -37,16 +35,12 @@ public class MediaSetUtils {
     public static final int DOWNLOAD_BUCKET_ID = GalleryUtils.getBucketId(
             Environment.getExternalStorageDirectory().toString() + "/"
             + BucketNames.DOWNLOAD);
-    public static final int EDITED_ONLINE_PHOTOS_BUCKET_ID = GalleryUtils.getBucketId(
-            Environment.getExternalStorageDirectory().toString() + "/"
-            + BucketNames.EDITED_ONLINE_PHOTOS);
-    public static final int IMPORTED_BUCKET_ID = GalleryUtils.getBucketId(
-            Environment.getExternalStorageDirectory().toString() + "/"
-            + BucketNames.IMPORTED);
     public static final int SNAPSHOT_BUCKET_ID = GalleryUtils.getBucketId(
             Environment.getExternalStorageDirectory().toString() +
             "/" + BucketNames.SCREENSHOTS);
-
+    public static final int MOVIES_BUCKET_ID = GalleryUtils.getBucketId(
+            Environment.getExternalStorageDirectory().toString() +
+            "/" + BucketNames.MOVIES);
     public static int getCameraBucketId() {
         return GalleryUtils.getBucketId(mRoot + "/" + BucketNames.CAMERA);
     }
@@ -55,15 +49,5 @@ public class MediaSetUtils {
         return path.equalsIgnoreCase("/local/all/" + getCameraBucketId())
                 || path.equalsIgnoreCase("/local/image/" + getCameraBucketId())
                 || path.equalsIgnoreCase("/local/video/" + getCameraBucketId());
-    }
-
-    // Sort MediaSets by name
-    public static class NameComparator implements Comparator<MediaSet> {
-        @Override
-        public int compare(MediaSet set1, MediaSet set2) {
-            int result = set1.getName().compareToIgnoreCase(set2.getName());
-            if (result != 0) return result;
-            return set1.getPath().toString().compareTo(set2.getPath().toString());
-        }
     }
 }

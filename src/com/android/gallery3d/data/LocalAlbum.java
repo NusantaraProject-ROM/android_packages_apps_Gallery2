@@ -283,12 +283,8 @@ public class LocalAlbum extends MediaSet {
             return res.getString(R.string.folder_camera);
         } else if (bucketId == MediaSetUtils.DOWNLOAD_BUCKET_ID) {
             return res.getString(R.string.folder_download);
-        } else if (bucketId == MediaSetUtils.IMPORTED_BUCKET_ID) {
-            return res.getString(R.string.folder_imported);
         } else if (bucketId == MediaSetUtils.SNAPSHOT_BUCKET_ID) {
             return res.getString(R.string.folder_screenshot);
-        } else if (bucketId == MediaSetUtils.EDITED_ONLINE_PHOTOS_BUCKET_ID) {
-            return res.getString(R.string.folder_edited_online_photos);
         } else {
             return name;
         }
@@ -301,12 +297,10 @@ public class LocalAlbum extends MediaSet {
             relativePath += BucketNames.CAMERA;
         } else if (bucketId == MediaSetUtils.DOWNLOAD_BUCKET_ID) {
             relativePath += BucketNames.DOWNLOAD;
-        } else if (bucketId == MediaSetUtils.IMPORTED_BUCKET_ID) {
-            relativePath += BucketNames.IMPORTED;
         } else if (bucketId == MediaSetUtils.SNAPSHOT_BUCKET_ID) {
             relativePath += BucketNames.SCREENSHOTS;
-        } else if (bucketId == MediaSetUtils.EDITED_ONLINE_PHOTOS_BUCKET_ID) {
-            relativePath += BucketNames.EDITED_ONLINE_PHOTOS;
+        } else if (bucketId == MediaSetUtils.MOVIES_BUCKET_ID) {
+            relativePath += BucketNames.MOVIES;
         } else {
             // If the first few cases didn't hit the matching path, do a
             // thorough search in the local directories.

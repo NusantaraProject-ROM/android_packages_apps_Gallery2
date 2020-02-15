@@ -111,7 +111,7 @@ public class LocalAlbumSet extends MediaSet
             if (jc.isCancelled()) return null;
 
             int offset = 0;
-            // Move camera and download bucket to the front, while keeping the
+            // Move camera screenshot and download bucket to the front, while keeping the
             // order of others.
             int index = findBucket(entries, MediaSetUtils.getCameraBucketId());
             if (index != -1) {
@@ -121,7 +121,14 @@ public class LocalAlbumSet extends MediaSet
             if (index != -1) {
                 circularShiftRight(entries, offset++, index);
             }
-
+            index = findBucket(entries, MediaSetUtils.MOVIES_BUCKET_ID);
+            if (index != -1) {
+                circularShiftRight(entries, offset++, index);
+            }
+            index = findBucket(entries, MediaSetUtils.SNAPSHOT_BUCKET_ID);
+            if (index != -1) {
+                circularShiftRight(entries, offset++, index);
+            }
             ArrayList<MediaSet> albums = new ArrayList<MediaSet>();
             DataManager dataManager = mApplication.getDataManager();
             for (BucketEntry entry : entries) {
