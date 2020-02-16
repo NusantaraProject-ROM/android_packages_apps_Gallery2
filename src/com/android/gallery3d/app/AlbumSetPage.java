@@ -66,15 +66,14 @@ import java.util.ArrayList;
 
 public class AlbumSetPage extends ActivityState implements
         SelectionManager.SelectionListener, GalleryActionBar.ClusterRunner,
-        EyePosition.EyePositionListener, MediaSet.SyncListener {
+        EyePosition.EyePositionListener, MediaSet.SyncListener,
+        AlbumSetPageBottomControls.Delegate {
     @SuppressWarnings("unused")
     private static final String TAG = "AlbumSetPage";
 
     private static final int MSG_PICK_ALBUM = 1;
 
     public static final String KEY_MEDIA_PATH = "media-path";
-    public static final String KEY_SET_TITLE = "set-title";
-    public static final String KEY_SET_SUBTITLE = "set-subtitle";
     public static final String KEY_SELECTED_CLUSTER_TYPE = "selected-cluster";
 
     private static final int DATA_CACHE_SIZE = 256;
@@ -89,9 +88,6 @@ public class AlbumSetPage extends ActivityState implements
     private Config.AlbumSetPage mConfig;
 
     private MediaSet mMediaSet;
-    private String mTitle;
-    private String mSubtitle;
-    private boolean mShowClusterMenu;
     private GalleryActionBar mActionBar;
     private int mSelectedAction;
 
@@ -116,6 +112,7 @@ public class AlbumSetPage extends ActivityState implements
     private boolean mInitialSynced = false;
 
     private boolean mShowedEmptyToastForSelf = false;
+    private AlbumSetPageBottomControls mBottomControls;
 
     @Override
     protected int getBackgroundColorId() {
@@ -323,6 +320,7 @@ public class AlbumSetPage extends ActivityState implements
 
     @Override
     public void doCluster(final int clusterType) {
+        mSelectionManager.leaveSelectionMode();
         // if type is location - check for perms
         if (clusterType == FilterUtils.CLUSTER_BY_LOCATION) {
             mActivity.doRunWithLocationPermission(new Runnable() {
@@ -349,12 +347,13 @@ public class AlbumSetPage extends ActivityState implements
         Context context = mActivity.getAndroidContext();
         mGetContent = data.getBoolean(GalleryActivity.KEY_GET_CONTENT, false);
         mGetAlbum = data.getBoolean(GalleryActivity.KEY_GET_ALBUM, false);
-        mTitle = data.getString(AlbumSetPage.KEY_SET_TITLE);
-        mSubtitle = data.getString(AlbumSetPage.KEY_SET_SUBTITLE);
         mEyePosition = new EyePosition(context, this);
         mActionBar = mActivity.getGalleryActionBar();
         mSelectedAction = data.getInt(AlbumSetPage.KEY_SELECTED_CLUSTER_TYPE,
                 FilterUtils.CLUSTER_BY_ALBUM);
+        RelativeLayout galleryRoot = (RelativeLayout) mActivity.findViewById(R.id.gallery_root);
+        mBottomControls = new AlbumSetPageBottomControls(this, mActivity, galleryRoot);
+        selectActiveBottomControl();
 
         mHandler = new SynchronizedHandler(mActivity.getGLRoot()) {
             @Override
@@ -418,18 +417,13 @@ public class AlbumSetPage extends ActivityState implements
         mAlbumSetView.pause();
         mActionModeHandler.pause();
         mEyePosition.pause();
-        if (mShowClusterMenu) {
-            // Call disableClusterMenu to avoid receiving callback after paused.
-            // Don't hide menu here otherwise the list menu will disappear earlier than
-            // the action bar, which is janky and unwanted behavior.
-            mActionBar.disableClusterMenu(false);
-        }
         if (mSyncTask != null) {
             mSyncTask.cancel();
             mSyncTask = null;
             clearLoadingBit(BIT_LOADING_SYNC);
         }
         GalleryUtils.setAlbumsetZoomLevel(mActivity, mSlotView.getZoomLevel());
+        mBottomControls.hide(false);
     }
 
     @Override
@@ -442,6 +436,7 @@ public class AlbumSetPage extends ActivityState implements
 
         setContentPane(mRootPane);
         mActivity.getGLRootView().applySystemInsets();
+        mActivity.setBottomControlMargin(true);
 
         // Set the reload bit here to prevent it exit this page in clearLoadingBit().
         setLoadingBit(BIT_LOADING_RELOAD);
@@ -450,14 +445,12 @@ public class AlbumSetPage extends ActivityState implements
         mAlbumSetView.resume();
         mEyePosition.resume();
         mActionModeHandler.resume();
-        if (mShowClusterMenu) {
-            mActionBar.enableClusterMenu(mSelectedAction, this);
-        }
         if (!mInitialSynced) {
             setLoadingBit(BIT_LOADING_SYNC);
             mSyncTask = mMediaSet.requestSync(AlbumSetPage.this);
         }
-    }
+        mBottomControls.show(false);
+   }
 
     private void initializeData(Bundle data) {
         String mediaPath = data.getString(AlbumSetPage.KEY_MEDIA_PATH);
@@ -527,8 +520,6 @@ public class AlbumSetPage extends ActivityState implements
             mActionBar.setTitle(R.string.select_album);
         } else {
             inflater.inflate(R.menu.albumset, menu);
-            boolean wasShowingClusterMenu = mShowClusterMenu;
-            mShowClusterMenu = !inAlbum;
             boolean selectAlbums = !inAlbum &&
                     mSelectedAction == FilterUtils.CLUSTER_BY_ALBUM;
             MenuItem selectItem = menu.findItem(R.id.action_select);
@@ -550,16 +541,7 @@ public class AlbumSetPage extends ActivityState implements
             moreItem.setVisible(mActivity.getResources().getBoolean(
                     R.bool.config_show_more_images));
 
-
-            mActionBar.setTitle(mTitle);
-            mActionBar.setSubtitle(mSubtitle);
-            if (mShowClusterMenu != wasShowingClusterMenu) {
-                if (mShowClusterMenu) {
-                    mActionBar.enableClusterMenu(mSelectedAction, this);
-                } else {
-                    mActionBar.disableClusterMenu(true);
-                }
-            }
+            setActiveActionBarTitle();
         }
         return true;
     }
@@ -634,9 +616,6 @@ public class AlbumSetPage extends ActivityState implements
             }
             case SelectionManager.LEAVE_SELECTION_MODE: {
                 mActionModeHandler.finishActionMode();
-                if (mShowClusterMenu) {
-                    mActionBar.enableClusterMenu(mSelectedAction, this);
-                }
                 mRootPane.invalidate();
                 break;
             }
@@ -678,6 +657,64 @@ public class AlbumSetPage extends ActivityState implements
                 }
             }
         });
+    }
+
+    @Override
+    public void onBottomControlClicked(int control) {
+        Log.d("maxwen", "onBottomControlClicked " + control);
+
+        switch(control) {
+            case R.id.albumpage_bottom_control_album:
+                doCluster(FilterUtils.CLUSTER_BY_ALBUM);
+                break;
+            case R.id.albumpage_bottom_control_location:
+                doCluster(FilterUtils.CLUSTER_BY_LOCATION);
+                break;
+            case R.id.albumpage_bottom_control_times:
+                doCluster(FilterUtils.CLUSTER_BY_TIME);
+                break;
+            case R.id.albumpage_bottom_control_type:
+                doCluster(FilterUtils.CLUSTER_BY_TYPE);
+                break;
+        }
+    }
+
+    private void selectActiveBottomControl() {
+        switch(mSelectedAction) {
+            case FilterUtils.CLUSTER_BY_ALBUM:
+                mBottomControls.selectItemWithId(R.id.albumpage_bottom_control_album);
+                mActionBar.setTitle(R.string.albums);
+                break;
+            case FilterUtils.CLUSTER_BY_LOCATION:
+                mBottomControls.selectItemWithId(R.id.albumpage_bottom_control_location);
+                mActionBar.setTitle(R.string.locations);
+                break;
+            case FilterUtils.CLUSTER_BY_TIME:
+                mBottomControls.selectItemWithId(R.id.albumpage_bottom_control_times);
+                mActionBar.setTitle(R.string.times);
+                break;
+            case FilterUtils.CLUSTER_BY_TYPE:
+                mBottomControls.selectItemWithId(R.id.albumpage_bottom_control_type);
+                mActionBar.setTitle(R.string.type);
+                break;
+        }
+    }
+
+    private void setActiveActionBarTitle() {
+        switch(mSelectedAction) {
+            case FilterUtils.CLUSTER_BY_ALBUM:
+                mActionBar.setTitle(R.string.albums);
+                break;
+            case FilterUtils.CLUSTER_BY_LOCATION:
+                mActionBar.setTitle(R.string.locations);
+                break;
+            case FilterUtils.CLUSTER_BY_TIME:
+                mActionBar.setTitle(R.string.times);
+                break;
+            case FilterUtils.CLUSTER_BY_TYPE:
+                mActionBar.setTitle(R.string.type);
+                break;
+        }
     }
 
     private class MyLoadingListener implements LoadingListener {
