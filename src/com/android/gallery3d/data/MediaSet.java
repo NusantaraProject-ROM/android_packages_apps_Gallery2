@@ -191,6 +191,9 @@ public abstract class MediaSet extends MediaObject {
     // in the same thread as getMediaItem(int, int) and getSubMediaSet(int).
     public abstract long reload();
 
+    public void reloadClustering() {
+    }
+
     @Override
     public MediaDetails getDetails() {
         MediaDetails details = super.getDetails();

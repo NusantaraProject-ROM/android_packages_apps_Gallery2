@@ -70,6 +70,8 @@ public class AlbumSetSlidingWindow implements AlbumSetDataLoader.DataListener {
     private BitmapTexture mLoadingLabel;
 
     private int mSlotWidth;
+    private String mCountTextSingle;
+    private String mCountTextMulti;
 
     public static class AlbumSetEntry {
         public MediaSet album;
@@ -111,6 +113,8 @@ public class AlbumSetSlidingWindow implements AlbumSetDataLoader.DataListener {
                 ((EntryUpdater) message.obj).updateEntry();
             }
         };
+        mCountTextMulti = activity.getResources().getString(R.string.count_string_multi);
+        mCountTextSingle = activity.getResources().getString(R.string.count_string_single);
     }
 
     public void setListener(Listener listener) {
@@ -495,7 +499,8 @@ public class AlbumSetSlidingWindow implements AlbumSetDataLoader.DataListener {
         @Override
         protected Future<Bitmap> submitBitmapTask(FutureListener<Bitmap> l) {
             return mThreadPool.submit(mLabelMaker.requestLabel(
-                    mTitle, String.valueOf(mTotalCount), mSourceType), l);
+                    mTitle, String.valueOf(mTotalCount) + " " +
+                    (mTotalCount == 1 ? mCountTextSingle : mCountTextMulti), mSourceType), l);
         }
 
         @Override

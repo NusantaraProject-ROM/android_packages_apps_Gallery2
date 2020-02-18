@@ -143,10 +143,6 @@ public class LocalImage extends LocalMediaItem {
         fileSize = cursor.getLong(INDEX_SIZE);
         width = cursor.getInt(INDEX_WIDTH);
         height = cursor.getInt(INDEX_HEIGHT);
-
-        if (MIME_TYPE_JPEG.equals(mimeType)) {
-            resolveLocation();
-        }
     }
 
     @Override
@@ -167,10 +163,6 @@ public class LocalImage extends LocalMediaItem {
         fileSize = uh.update(fileSize, cursor.getLong(INDEX_SIZE));
         width = uh.update(width, cursor.getInt(INDEX_WIDTH));
         height = uh.update(height, cursor.getInt(INDEX_HEIGHT));
-        
-        if (MIME_TYPE_JPEG.equals(mimeType)) {
-            resolveLocation();
-        }
         return uh.isUpdated();
     }
 
@@ -352,16 +344,19 @@ public class LocalImage extends LocalMediaItem {
         return filePath;
     }
 
-    private void resolveLocation() {
-        try {
-            android.media.ExifInterface exif = new android.media.ExifInterface(filePath);
-            float[] location = new float[] {MediaItem.INVALID_LATLNG, MediaItem.INVALID_LATLNG};
-            exif.getLatLong(location);
-            latitude = location[0];
-            longitude = location[1];
-        } catch (IOException e) {
-            latitude = MediaItem.INVALID_LATLNG;
-            longitude = MediaItem.INVALID_LATLNG;
+    @Override
+    protected void resolveLocation() {
+        if (MIME_TYPE_JPEG.equals(mimeType)) {
+            try {
+                android.media.ExifInterface exif = new android.media.ExifInterface(filePath);
+                float[] location = new float[] {MediaItem.INVALID_LATLNG, MediaItem.INVALID_LATLNG};
+                exif.getLatLong(location);
+                latitude = location[0];
+                longitude = location[1];
+            } catch (IOException e) {
+                latitude = MediaItem.INVALID_LATLNG;
+                longitude = MediaItem.INVALID_LATLNG;
+            }
         }
     }
 }

@@ -50,23 +50,20 @@ public class AlbumLabelMaker {
     public AlbumLabelMaker(Context context, AlbumSetSlotRenderer.LabelSpec spec) {
         mContext = context;
         mSpec = spec;
-        mTitlePaint = getTextPaint(spec.titleFontSize, spec.titleColor, false);
-        mCountPaint = getTextPaint(spec.countFontSize, spec.countColor, false);
+        mTitlePaint = getTextPaint(spec.titleFontSize, spec.titleColor);
+        mCountPaint = getTextPaint(spec.countFontSize, spec.countColor);
     }
 
     public static int getBorderSize() {
         return BORDER_SIZE;
     }
 
-    private static TextPaint getTextPaint(int textSize, int color, boolean isBold) {
+    private static TextPaint getTextPaint(int textSize, int color) {
         TextPaint paint = new TextPaint();
         paint.setTextSize(textSize);
         paint.setAntiAlias(true);
         paint.setColor(color);
-        //paint.setShadowLayer(2f, 0f, 0f, Color.LTGRAY);
-        if (isBold) {
-            paint.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        }
+        paint.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
         return paint;
     }
 
@@ -153,38 +150,35 @@ public class AlbumLabelMaker {
 
             canvas.translate(BORDER_SIZE, BORDER_SIZE);
 
+            int lineHeight = s.labelBackgroundHeight / 2;
             if (View.LAYOUT_DIRECTION_RTL == TextUtils
                     .getLayoutDirectionFromLocale(Locale.getDefault())) {// RTL
                 // draw title
                 if (jc.isCancelled()) return null;
                 int strLength = (int) mTitlePaint.measureText(title);
                 int x = labelWidth - s.leftMargin - strLength;
-                // TODO: is the offset relevant in new reskin?
-                // int y = s.titleOffset;
-                int y = (s.labelBackgroundHeight - s.titleFontSize) / 2;
+                int y = (lineHeight - s.titleFontSize) / 2;
                 drawText(canvas, x, y, title, labelWidth - s.leftMargin - x -
                         s.titleRightMargin, mTitlePaint);
 
                 // draw count
                 if (jc.isCancelled()) return null;
-                x = s.leftMargin + countWidth;
-                y = (s.labelBackgroundHeight - s.countFontSize) / 2;
+                strLength = (int) mCountPaint.measureText(count);
+                x = labelWidth - s.leftMargin - strLength;
+                y = lineHeight + (lineHeight - s.countFontSize) / 2 - s.titleOffset * 2;
                 drawText(canvas, x, y, count,
                         labelWidth - x, mCountPaint);
             } else { // LTR
                 // draw title
                 if (jc.isCancelled()) return null;
                 int x = s.leftMargin;
-                // TODO: is the offset relevant in new reskin?
-                // int y = s.titleOffset;
-                int y = (s.labelBackgroundHeight - s.titleFontSize) / 2;
+                int y = (lineHeight - s.titleFontSize) / 2;
                 drawText(canvas, x, y, title, labelWidth - s.leftMargin - x -
                         s.titleRightMargin, mTitlePaint);
 
                 // draw count
                 if (jc.isCancelled()) return null;
-                x = labelWidth - s.titleRightMargin - countWidth;
-                y = (s.labelBackgroundHeight - s.countFontSize) / 2;
+                y = lineHeight + (lineHeight - s.countFontSize) / 2 - s.titleOffset * 2;
                 drawText(canvas, x, y, count,
                         labelWidth - x, mCountPaint);
             }

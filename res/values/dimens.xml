@@ -116,7 +116,7 @@
     <integer name="albumset_cols_land_min">2</integer>
     <integer name="albumset_cols_land_max">5</integer>
     <integer name="albumset_cols_port_min">1</integer>
-    <integer name="albumset_cols_port_max">4</integer>
+    <integer name="albumset_cols_port_max">3</integer>
 
     <dimen name="albumset_padding_top">3dp</dimen>
     <dimen name="albumset_padding_bottom">3dp</dimen>
@@ -124,9 +124,8 @@
     <dimen name="albumset_padding_right">3dp</dimen>
     <dimen name="albumset_slot_gap">5dp</dimen>
 
-    <dimen name="albumset_label_background_height">35dp</dimen>
-    <dimen name="albumset_title_offset">10dp</dimen>
-    <dimen name="albumset_count_offset">10dp</dimen>
+    <dimen name="albumset_label_background_height">40dp</dimen>
+    <dimen name="albumset_title_offset">2dp</dimen>
     <dimen name="albumset_title_font_size">14sp</dimen>
     <dimen name="albumset_count_font_size">14sp</dimen>
     <dimen name="albumset_left_margin">5dp</dimen>

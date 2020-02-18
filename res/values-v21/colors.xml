@@ -14,30 +14,33 @@
      limitations under the License.
 -->
 <resources>
+    <color name="default_background">#000</color>
+    <color name="bottom_bar_background">#000</color>
+
     <!-- configuration for album set page -->
     <!-- material_grey_900 -->
-    <color name="albumset_background">#ff212121</color>
+    <color name="albumset_background">@color/default_background</color>
     <color name="albumset_placeholder">#252525</color>
     <!-- material_grey_800 -->
-    <color name="albumset_label_background">@color/primary_light</color>
-    <color name="albumset_label_title">#000</color>
-    <color name="albumset_label_count">#000</color>
+    <color name="albumset_label_background">#252525</color>
+    <color name="albumset_label_title">#fff</color>
+    <color name="albumset_label_count">#fff</color>
 
     <!-- configuration for album page -->
-    <color name="album_background">#ff171717</color>
+    <color name="album_background">@color/default_background</color>
     <color name="album_placeholder">#252525</color>
 
     <!-- configuration for photo page -->
-    <color name="photo_background">#ff171717</color>
+    <color name="photo_background">@color/default_background</color>
     <color name="photo_placeholder">#252525</color>
 
     <!-- configuration for manage cache page -->
-    <color name="cache_background">#ff171717</color>
+    <color name="cache_background">@color/default_background</color>
     <color name="cache_placeholder">#252525</color>
 
     <color name="bitmap_screennail_placeholder">#252525</color>
 
-    <color name="slideshow_background">#ff171717</color>
+    <color name="slideshow_background">@color/default_background</color>
 
     <color name="button_dark_transparent_background">#1d1d1d</color>
 

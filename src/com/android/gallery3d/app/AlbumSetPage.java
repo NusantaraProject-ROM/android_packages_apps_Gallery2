@@ -78,6 +78,7 @@ public class AlbumSetPage extends ActivityState implements
 
     private static final int DATA_CACHE_SIZE = 256;
     private static final int REQUEST_DO_ANIMATION = 1;
+    private static final int REQUEST_SETTINGS = 2;
 
     private static final int BIT_LOADING_RELOAD = 1;
     private static final int BIT_LOADING_SYNC = 2;
@@ -528,7 +529,8 @@ public class AlbumSetPage extends ActivityState implements
                 return true;
             }
             case R.id.action_settings: {
-                mActivity.startActivity(new Intent(mActivity, GallerySettings.class));
+                Intent intent = new Intent(mActivity, GallerySettings.class);
+                mActivity.startActivityForResult(intent, REQUEST_SETTINGS);
                 return true;
             }
             case R.id.action_slideshow: {
@@ -547,9 +549,13 @@ public class AlbumSetPage extends ActivityState implements
     @Override
     protected void onStateResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
-            case REQUEST_DO_ANIMATION: {
+            case REQUEST_DO_ANIMATION:
                 mSlotView.startRisingAnimation();
-            }
+                break;
+            case REQUEST_SETTINGS:
+                mMediaSet.reloadClustering();
+                doCluster(mSelectedAction);
+                break;
         }
     }
 

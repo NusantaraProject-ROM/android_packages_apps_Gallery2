@@ -18,10 +18,10 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.gallery3d">
 
     <PreferenceCategory android:title="@string/slideshow_settings" >
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="slideshow_random"
             android:title="@string/slideshow_random_title" />
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="slideshow_repeat"
             android:title="@string/slideshow_repeat_title"
             android:defaultValue="true" />
@@ -33,5 +33,10 @@
             settings:min="1"
             settings:unitsLeft=""
             settings:unitsRight="@string/unit_sec"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/cluster_settings" >
+        <SwitchPreference
+            android:key="time_cluster_weeks"
+            android:title="@string/time_cluster_weeks_title" />
     </PreferenceCategory>
 </PreferenceScreen>

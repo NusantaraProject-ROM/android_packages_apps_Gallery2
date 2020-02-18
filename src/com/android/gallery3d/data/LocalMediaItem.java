@@ -39,8 +39,8 @@ public abstract class LocalMediaItem extends MediaItem {
     public String caption;
     public String mimeType;
     public long fileSize;
-    public float latitude = MediaItem.INVALID_LATLNG;
-    public float longitude = MediaItem.INVALID_LATLNG;
+    protected float latitude = MediaItem.INVALID_LATLNG;
+    protected float longitude = MediaItem.INVALID_LATLNG;
     public long dateTakenInMs;
     public long dateAddedInSec;
     public long dateModifiedInSec;
@@ -48,6 +48,7 @@ public abstract class LocalMediaItem extends MediaItem {
     public int bucketId;
     public int width;
     public int height;
+    private boolean mLocationResolved;
 
     private static final SimpleDateFormat mDateFormatFilter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
@@ -67,8 +68,16 @@ public abstract class LocalMediaItem extends MediaItem {
 
     @Override
     public void getLatLong(double[] latLong) {
+        if (!mLocationResolved && latitude == MediaItem.INVALID_LATLNG &&
+                longitude == MediaItem.INVALID_LATLNG) {
+            resolveLocation();
+            mLocationResolved = true;
+        }
         latLong[0] = latitude;
         latLong[1] = longitude;
+    }
+
+    protected void resolveLocation() {
     }
 
     abstract protected boolean updateFromCursor(Cursor cursor);

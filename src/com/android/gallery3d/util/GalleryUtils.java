@@ -79,6 +79,7 @@ public class GalleryUtils {
     private static final String KEY_DURATION_SLIDESHOW = "slideshow_duration";
     private static final String KEY_ALBUMSET_ZOOM_LEVEL = "albumset_zoom_level";
     private static final String KEY_ALBUM_ZOOM_LEVEL = "album_zoom_level";
+    private static final String KEY_TIME_CLUSTER_WEEKS = "time_cluster_weeks";
 
     private static float sPixelDensity = -1f;
     private static boolean sCameraAvailableInitialized = false;
@@ -461,5 +462,10 @@ public class GalleryUtils {
     public static void setAlbumZoomLevel(Context context, int value) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         prefs.edit().putInt(KEY_ALBUM_ZOOM_LEVEL, value).commit();
+    }
+
+    public static boolean isTimeClusterByWeeks(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean(KEY_TIME_CLUSTER_WEEKS, false);
     }
 }

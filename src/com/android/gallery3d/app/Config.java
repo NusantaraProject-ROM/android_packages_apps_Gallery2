@@ -73,8 +73,6 @@ final class Config {
                     R.dimen.albumset_label_background_height);
             labelSpec.titleOffset = r.getDimensionPixelSize(
                     R.dimen.albumset_title_offset);
-            labelSpec.countOffset = r.getDimensionPixelSize(
-                    R.dimen.albumset_count_offset);
             labelSpec.titleFontSize = r.getDimensionPixelSize(
                     R.dimen.albumset_title_font_size);
             labelSpec.countFontSize = r.getDimensionPixelSize(

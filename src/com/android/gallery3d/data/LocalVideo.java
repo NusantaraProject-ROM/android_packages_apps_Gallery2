@@ -112,7 +112,6 @@ public class LocalVideo extends LocalMediaItem {
         bucketId = cursor.getInt(INDEX_BUCKET_ID);
         fileSize = cursor.getLong(INDEX_SIZE);
         parseResolution(cursor.getString(INDEX_RESOLUTION));
-        resolveLocation();
     }
 
     private void parseResolution(String resolution) {
@@ -146,7 +145,6 @@ public class LocalVideo extends LocalMediaItem {
                 durationInSec, cursor.getInt(INDEX_DURATION) / 1000);
         bucketId = uh.update(bucketId, cursor.getInt(INDEX_BUCKET_ID));
         fileSize = uh.update(fileSize, cursor.getLong(INDEX_SIZE));
-        resolveLocation();
         return uh.isUpdated();
     }
 
@@ -245,7 +243,8 @@ public class LocalVideo extends LocalMediaItem {
         return filePath;
     }
 
-    private void resolveLocation() {
+    @Override
+    protected void resolveLocation() {
         MediaMetadataRetriever meta = new MediaMetadataRetriever();
         meta.setDataSource(filePath);
         //+47.8207+013.0166/
