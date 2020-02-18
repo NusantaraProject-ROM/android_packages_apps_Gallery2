@@ -19,13 +19,13 @@
         <item name="android:colorPrimary">@color/primary</item>
         <item name="android:colorPrimaryDark">@color/primary</item>
         <item name="android:colorAccent">@color/accent</item>
-        <item name="switchStyle">@android:style/Widget.CompoundButton</item>
         <item name="android:dialogTheme">@style/DialogTheme</item>
         <item name="android:alertDialogTheme">@style/DialogTheme</item>
         <item name="android:popupTheme">@style/PopupThemePrimary</item>
         <item name="android:actionModeBackground">@drawable/actionmode_background</item>
+        <item name="android:windowBackground">@color/default_background</item>
     </style>
-    <style name="DialogTheme" parent="@android:style/Theme.DeviceDefault.Light.Dialog">
+    <style name="DialogTheme" parent="@android:style/Theme.Material.Dialog.Alert">
         <item name="android:colorAccent">@color/accent</item>
     </style>
     <style name="Theme.Gallery" parent="Theme.GalleryBase">

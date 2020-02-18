@@ -16,29 +16,30 @@
 <resources>
     <color name="default_background">#000</color>
     <color name="bottom_bar_background">#000</color>
+    <color name="placeholder_background">#171717</color>
 
     <!-- configuration for album set page -->
     <!-- material_grey_900 -->
     <color name="albumset_background">@color/default_background</color>
-    <color name="albumset_placeholder">#252525</color>
+    <color name="albumset_placeholder">@color/placeholder_background</color>
     <!-- material_grey_800 -->
-    <color name="albumset_label_background">#252525</color>
+    <color name="albumset_label_background">@color/placeholder_background</color>
     <color name="albumset_label_title">#fff</color>
     <color name="albumset_label_count">#fff</color>
 
     <!-- configuration for album page -->
     <color name="album_background">@color/default_background</color>
-    <color name="album_placeholder">#252525</color>
+    <color name="album_placeholder">@color/placeholder_background</color>
 
     <!-- configuration for photo page -->
     <color name="photo_background">@color/default_background</color>
-    <color name="photo_placeholder">#252525</color>
+    <color name="photo_placeholder">@color/placeholder_background</color>
 
     <!-- configuration for manage cache page -->
     <color name="cache_background">@color/default_background</color>
-    <color name="cache_placeholder">#252525</color>
+    <color name="cache_placeholder">@color/placeholder_background</color>
 
-    <color name="bitmap_screennail_placeholder">#252525</color>
+    <color name="bitmap_screennail_placeholder">@color/placeholder_background</color>
 
     <color name="slideshow_background">@color/default_background</color>
 
