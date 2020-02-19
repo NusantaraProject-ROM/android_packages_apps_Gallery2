@@ -40,7 +40,6 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.v4.print.PrintHelper;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -57,6 +56,7 @@ import com.android.gallery3d.data.MediaItem;
 import com.android.gallery3d.filtershow.cache.ImageLoader;
 import com.android.gallery3d.ui.GLRoot;
 import com.android.gallery3d.ui.GLRootView;
+import com.android.gallery3d.util.Log;
 import com.android.gallery3d.util.MediaSetUtils;
 import com.android.gallery3d.util.PanoramaViewHelper;
 import com.android.gallery3d.util.ThreadPool;
@@ -256,6 +256,7 @@ public class AbstractGalleryActivity extends Activity implements GalleryContext 
     @Override
     protected void onPause() {
         super.onPause();
+        hideProgress();
         mGLRootView.onPause();
         mGLRootView.lockRenderThread();
         try {
@@ -436,10 +437,11 @@ public class AbstractGalleryActivity extends Activity implements GalleryContext 
     }
 
     protected void showProgress() {
-        mProgress.setVisibility(View.VISIBLE);
+        //mProgress.setVisibility(View.VISIBLE);
     }
+
     protected void hideProgress() {
-        mProgress.setVisibility(View.GONE);
+        //mProgress.setVisibility(View.GONE);
     }
 
     @Override
