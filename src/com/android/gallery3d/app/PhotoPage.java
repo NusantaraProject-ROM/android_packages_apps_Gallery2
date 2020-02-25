@@ -1112,19 +1112,7 @@ public abstract class PhotoPage extends ActivityState implements
     }
 
     private void showDetails() {
-        mActivity.doRunWithLocationPermission(
-            new Runnable() {
-                @Override
-                public void run() {
-                    doShowDetails(true);
-                }
-            },
-            new Runnable() {
-                @Override
-                public void run() {
-                    doShowDetails(false);
-                }
-            });
+        doShowDetails(false);
     }
 
     private void doShowDetails(boolean withLocationPermission) {

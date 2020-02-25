@@ -67,7 +67,6 @@ import java.util.ArrayList;
 
 public class AbstractGalleryActivity extends Activity implements GalleryContext {
     private static final String TAG = "AbstractGalleryActivity";
-    private static final int PERMISSION_REQUEST_LOCATION = 2;
 
     private GLRootView mGLRootView;
     private StateManager mStateManager;
@@ -83,8 +82,6 @@ public class AbstractGalleryActivity extends Activity implements GalleryContext 
         }
     };
     private IntentFilter mMountFilter = new IntentFilter(Intent.ACTION_MEDIA_MOUNTED);
-    private Runnable mRunWithPermission;
-    private Runnable mRunWithoutPermission;
     private LinearLayout mGLRootViewContainer;
 
     @Override
@@ -442,61 +439,5 @@ public class AbstractGalleryActivity extends Activity implements GalleryContext 
 
     protected void hideProgress() {
         //mProgress.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[],
-            int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSION_REQUEST_LOCATION: {
-                if (checkPermissionGrantResults(grantResults)) {
-                    if (mRunWithPermission != null) {
-                        mRunWithPermission.run();
-                    }
-                } else {
-                    if (mRunWithoutPermission != null) {
-                        mRunWithoutPermission.run();
-                    }
-                }
-            }
-        }
-    }
-
-    public void doRunWithLocationPermission(Runnable runWithPermission, Runnable runWithoutPermission) {
-        mRunWithPermission = runWithPermission;
-        mRunWithoutPermission = runWithoutPermission;
-        String[] permissions = {
-                Manifest.permission.ACCESS_FINE_LOCATION
-        };
-
-        if (!hasLocationPermission()) {
-            requestPermissions(permissions, PERMISSION_REQUEST_LOCATION);
-        }  else {
-            runWithPermission.run();
-        }
-    }
-
-    public boolean hasLocationPermission() {
-        boolean needRequest = false;
-
-        String[] permissions = {
-                Manifest.permission.ACCESS_FINE_LOCATION
-        };
-        for (String permission : permissions) {
-            if (checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
-                needRequest = true;
-                break;
-            }
-        }
-        return !needRequest;
-    }
-
-    private boolean checkPermissionGrantResults(int[] grantResults) {
-        for (int result : grantResults) {
-            if (result != PackageManager.PERMISSION_GRANTED) {
-                return false;
-            }
-        }
-        return true;
     }
 }

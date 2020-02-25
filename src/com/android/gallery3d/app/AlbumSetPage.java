@@ -289,22 +289,7 @@ public class AlbumSetPage extends ActivityState implements
             return;
         }
         mSelectionManager.leaveSelectionMode();
-        // if type is location - check for perms
-        if (clusterType == FilterUtils.CLUSTER_BY_LOCATION) {
-            mActivity.doRunWithLocationPermission(new Runnable() {
-                @Override
-                public void run() {
-                    doRunClusterAction(clusterType);
-                }
-            }, new Runnable() {
-                @Override
-                public void run() {
-                    doRunClusterAction(FilterUtils.CLUSTER_BY_ALBUM);
-                }
-            });
-        } else {
-            doRunClusterAction(clusterType);
-        }
+        doRunClusterAction(clusterType);
     }
 
     @Override

@@ -356,22 +356,8 @@ public class AlbumPage extends ActivityState implements GalleryActionBar.Cluster
 
     @Override
     public void doCluster(final int clusterType) {
-        // if type is location - check for perms
-        if (clusterType == FilterUtils.CLUSTER_BY_LOCATION) {
-            mActivity.doRunWithLocationPermission(new Runnable() {
-                @Override
-                public void run() {
-                    doRunClusterAction(clusterType);
-                }
-            }, new Runnable() {
-                @Override
-                public void run() {
-                    doRunClusterAction(FilterUtils.CLUSTER_BY_ALBUM);
-                }
-            });
-        } else {
-            doRunClusterAction(clusterType);
-        }
+        mSelectionManager.leaveSelectionMode();
+        doRunClusterAction(clusterType);
     }
 
     private void doRunClusterAction(int clusterType) {
