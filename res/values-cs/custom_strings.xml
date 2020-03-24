@@ -39,4 +39,8 @@
     <string name="scrolling_wall_yes">Ne</string>
     <string name="scrolling_wall_no">Ano</string>
     <string name="title_activity_filter_show_new">Editor</string>
+    <string name="time_cluster_weeks_title">Seskupit čas podle týdne</string>
+    <string name="cluster_settings">Seskupení</string>
+    <string name="count_string_single">položka</string>
+    <string name="count_string_multi">položky</string>
 </resources>

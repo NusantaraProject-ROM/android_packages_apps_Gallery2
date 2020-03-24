@@ -39,4 +39,8 @@
     <string name="scrolling_wall_yes">Nie</string>
     <string name="scrolling_wall_no">Tak</string>
     <string name="title_activity_filter_show_new">Edytor</string>
+    <string name="time_cluster_weeks_title">Grupuj według tygodnia</string>
+    <string name="cluster_settings">Grupowanie</string>
+    <string name="count_string_single">element</string>
+    <string name="count_string_multi">elementów</string>
 </resources>
