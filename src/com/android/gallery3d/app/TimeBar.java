@@ -355,6 +355,7 @@ public class TimeBar extends View {
 
     public void setSeekable(boolean canSeek) {
         mShowScrubber = canSeek;
+        mEnableScrubbing = canSeek;
     }
 
     private void updateBounds() {
