@@ -39,4 +39,8 @@
     <string name="scrolling_wall_yes">Нет</string>
     <string name="scrolling_wall_no">Да</string>
     <string name="title_activity_filter_show_new">Редактор</string>
+    <string name="time_cluster_weeks_title">Группировать по неделям</string>
+    <string name="cluster_settings">Группировка</string>
+    <string name="count_string_single">элемент</string>
+    <string name="count_string_multi">элементы</string>
 </resources>
