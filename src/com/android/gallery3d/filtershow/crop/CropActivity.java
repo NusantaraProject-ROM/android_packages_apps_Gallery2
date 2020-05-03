@@ -148,9 +148,10 @@ public class CropActivity extends Activity {
      * in the CROP intent.
      */
     private void pickImage() {
-        Intent intent = new Intent();
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivityForResult(Intent.createChooser(intent, getString(R.string.select_image)),
                 SELECT_PICTURE);
     }
@@ -261,8 +262,9 @@ public class CropActivity extends Activity {
         @Override
         protected Bitmap doInBackground(Uri... params) {
             Uri uri = params[0];
-            Bitmap bmap = ImageLoader.loadConstrainedBitmap(uri, mContext, mBitmapSize,
-                    mOriginalBounds, false);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            Bitmap bmap = ImageLoader.loadBitmap(mContext, uri, options);
+            mOriginalBounds = new Rect(0, 0, bmap.getWidth(), bmap.getHeight());
             mOrientation = ImageLoader.getMetadataRotation(mContext, uri);
             return bmap;
         }
@@ -364,20 +366,6 @@ public class CropActivity extends Activity {
         Intent mResultIntent = null;
         int mRotation = 0;
 
-        // Helper to setup input stream
-        private void regenerateInputStream() {
-            if (mInUri == null) {
-                Log.w(LOGTAG, "cannot read original file, no input URI given");
-            } else {
-                Utils.closeSilently(mInStream);
-                try {
-                    mInStream = getContentResolver().openInputStream(mInUri);
-                } catch (FileNotFoundException e) {
-                    Log.w(LOGTAG, "cannot read file: " + mInUri.toString(), e);
-                }
-            }
-        }
-
         public BitmapIOTask(Uri sourceUri, Uri destUri, String outputFormat, int flags,
                 RectF cropBounds, RectF photoBounds, RectF originalBitmapBounds, int rotation,
                 int outputX, int outputY) {
@@ -407,10 +395,6 @@ public class CropActivity extends Activity {
                         Log.w(LOGTAG, "cannot write file: " + mOutUri.toString(), e);
                     }
                 }
-            }
-
-            if ((flags & (DO_EXTRA_OUTPUT | DO_SET_WALLPAPER)) != 0) {
-                regenerateInputStream();
             }
         }
 
@@ -457,7 +441,7 @@ public class CropActivity extends Activity {
             }
 
             // Do the large cropped bitmap and/or set the wallpaper
-            if ((mFlags & (DO_EXTRA_OUTPUT | DO_SET_WALLPAPER)) != 0 && mInStream != null) {
+            if ((mFlags & (DO_EXTRA_OUTPUT | DO_SET_WALLPAPER)) != 0) {
                 // Find crop bounds (scaled to original image size)
                 RectF trueCrop = CropMath.getScaledCropBounds(mCrop, mPhoto, mOrig);
                 if (trueCrop == null) {
@@ -474,42 +458,10 @@ public class CropActivity extends Activity {
                     return false;
                 }
 
-                // Attempt to open a region decoder
-                BitmapRegionDecoder decoder = null;
-                try {
-                    decoder = BitmapRegionDecoder.newInstance(mInStream, true);
-                } catch (IOException e) {
-                    Log.w(LOGTAG, "cannot open region decoder for file: " + mInUri.toString(), e);
-                }
+                Bitmap crop = Bitmap.createBitmap(img, roundedTrueCrop.left,
+                            roundedTrueCrop.top, roundedTrueCrop.width(),
+                            roundedTrueCrop.height());
 
-                Bitmap crop = null;
-                if (decoder != null) {
-                    // Do region decoding to get crop bitmap
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inMutable = true;
-                    crop = decoder.decodeRegion(roundedTrueCrop, options);
-                    decoder.recycle();
-                }
-
-                if (crop == null) {
-                    // BitmapRegionDecoder has failed, try to crop in-memory
-                    regenerateInputStream();
-                    Bitmap fullSize = null;
-                    if (mInStream != null) {
-                        fullSize = BitmapFactory.decodeStream(mInStream);
-                    }
-                    if (fullSize != null) {
-                        crop = Bitmap.createBitmap(fullSize, roundedTrueCrop.left,
-                                roundedTrueCrop.top, roundedTrueCrop.width(),
-                                roundedTrueCrop.height());
-                    }
-                }
-
-                if (crop == null) {
-                    Log.w(LOGTAG, "cannot decode file: " + mInUri.toString());
-                    failure = true;
-                    return false;
-                }
                 if (mOutputX > 0 && mOutputY > 0) {
                     Matrix m = new Matrix();
                     RectF cropRect = new RectF(0, 0, crop.getWidth(), crop.getHeight());

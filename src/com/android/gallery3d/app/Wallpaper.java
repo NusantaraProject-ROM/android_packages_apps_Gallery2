@@ -98,10 +98,7 @@ public class Wallpaper extends Activity {
             case STATE_INIT: {
                 mPickedItem = intent.getData();
                 if (mPickedItem == null) {
-                    Intent request = new Intent(Intent.ACTION_GET_CONTENT)
-                            .setClass(this, DialogPicker.class)
-                            .setType(IMAGE_TYPE);
-                    startActivityForResult(request, STATE_PHOTO_PICKED);
+                    pickImage();
                     return;
                 }
                 mState = STATE_PHOTO_PICKED;
@@ -197,6 +194,15 @@ public class Wallpaper extends Activity {
             startActivity(cropAndSetWallpaperIntent);
             finish();
         }
+    }
+
+    private void pickImage() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.setType("image/*");
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivityForResult(Intent.createChooser(intent, getString(R.string.select_image)),
+                STATE_PHOTO_PICKED);
     }
 
     @Override
