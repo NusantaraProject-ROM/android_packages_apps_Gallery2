@@ -35,6 +35,7 @@ LOCAL_JNI_SHARED_LIBRARIES := \
     libjni_eglfence \
     libjni_filtershow_filters \
     libjni_jpegstream
+LOCAL_MULTILIB := both
 
 LOCAL_PROGUARD_ENABLED := disabled
 
